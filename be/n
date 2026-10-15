@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katalog - GalonKu</title>
+    <?php include '../layout/assets.php'; ?>
+</head>
+<body class="font-sans antialiased bg-surface">
+
+    <?php include '../layout/navbar.php'; ?>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-8">
+
+        <!-- HEADER -->
+        <div class="mb-6">
+            <h1 class="text-2xl md:text-3xl font-extrabold text-primary mb-2">Katalog Produk</h1>
+            <p class="text-accent text-sm md:text-base">Temukan air dan gas berkualitas dari depot terpercaya</p>
+        </div>
+
+        <!-- SEARCH & FILTER -->
+        <div class="bg-white rounded-2xl p-4 md:p-6 mb-6 shadow-soft">
+            <div class="flex flex-col md:flex-row gap-3 md:gap-4">
+                <div class="flex-1 relative">
+                    <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-accent"></i>
+                    <input type="text" placeholder="Cari produk..." 
+                        class="w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 focus:border-support focus:ring-2 focus:ring-support/30 outline-none transition text-sm">
+                </div>
+                <select class="px-4 py-3 rounded-xl border border-gray-200 focus:border-support focus:ring-2 focus:ring-support/30 outline-none transition text-sm bg-white">
+                    <option>Urutkan: Terbaru</option>
+                    <option>Harga: Termurah</option>
+                    <option>Harga: Termahal</option>
+                    <option>Nama: A-Z</option>
+                </select>
+            </div>
+
+            <div class="flex gap-2 mt-4 overflow-x-auto pb-1">
+                <button class="px-4 py-2 rounded-full bg-primary text-white text-xs md:text-sm font-semibold whitespace-nowrap">Semua</button>
+                <button class="px-4 py-2 rounded-full bg-surface text-accent hover:bg-support hover:text-primary text-xs md:text-sm font-semibold whitespace-nowrap transition">Air Galon</button>
+                <button class="px-4 py-2 rounded-full bg-surface text-accent hover:bg-support hover:text-primary text-xs md:text-sm font-semibold whitespace-nowrap transition">Gas LPG</button>
+                <button class="px-4 py-2 rounded-full bg-surface text-accent hover:bg-support hover:text-primary text-xs md:text-sm font-semibold whitespace-nowrap transition">Air Mineral</button>
+                <button class="px-4 py-2 rounded-full bg-surface text-accent hover:bg-support hover:text-primary text-xs md:text-sm font-semibold whitespace-nowrap transition">Promo</button>
+            </div>
+        </div>
+
+        <p class="text-accent text-sm mb-4">Menampilkan <span class="font-bold text-primary">8</span> produk</p>
+
+        <!-- GRID PRODUK -->
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5">
+
+            <!-- ============ PRODUK 1 ============ -->
+            <div class="product-card bg-white p-3 md:p-4 rounded-2xl shadow-soft hover:shadow-pop transition-all relative group cursor-pointer"
+                 onclick="openProductModal(this)"
+                 data-id="1"
+                 data-name="Galon Le Mineral 20L"
+                 data-depot="Wijaya Depot"
+                 data-price="19000"
+                 data-old-price="22000"
+                 data-rating="4.8"
+                 data-sold="120"
+                 data-stock="25"
+                 data-category="Air Galon"
+                 data-desc="Galon Le Mineral 20L adalah air mineral berkualitas tinggi yang diproses melalui filtrasi berlapis. Cocok untuk kebutuhan sehari-hari keluarga Anda. Airnya segar, bersih, dan kaya akan mineral alami."
+                 data-icon="fa-droplet"
+                 data-icon-color="text-secondary"
+                 data-badge="PROMO">
+                
+                <span class="absolute top-3 left-3 bg-support text-primary text-[10px] font-bold px-2 py-1 rounded-full z-10">PROMO</span>
+                <div class="h-32 md:h-40 bg-gray-50 rounded-xl mb-3 flex items-center justify-center overflow-hidden">
+                    <i class="fa-solid fa-droplet text-secondary text-4xl md:text-5xl opacity-50 group-hover:scale-110 transition-transform"></i>
+                </div>
+                <h3 class="font-semibold text-sm text-primary mb-1 truncate">Galon Le Mineral 20L</h3>
+                <p class="text-xs text-accent mb-2"><i class="fa-solid fa-store mr-1"></i>Wijaya Depot</p>
+                <div class="flex items-center gap-1 mb-2">
+                    <i class="fa-solid fa-star text-yellow-400 text-xs"></i>
+                    <span class="text-xs text-accent">4.8 (120)</span>
+                </div>
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-[10px] text-accent line-through">Rp 22.000</p>
+                        <span class="font-bold text-primary text-sm">Rp 19.000</span>
+                    </div>
+                    <button onclick="event.stopPropagation(); openProductModal(this.closest('.product-card'))" 
+                        class="w-8 h-8 rounded-full bg-secondary text-white flex items-center justify-center text-xs hover:bg-primary transition-colors">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- ============ PRODUK 2 ============ -->
+            <div class="product-card bg-white p-3 md:p-4 rounded-2xl shadow-soft hover:shadow-pop transition-all relative group cursor-pointer"
+                 onclick="openProductModal(this)"
+                 data-id="2"
+                 data-name="Gas LPG 3Kg"
+                 data-depot="Toko Sejahtera"
+                 data-price="25000"
+                 data-old-price=""
+                 data-rating="4.9"
+                 data-sold="89"
+                 data-stock="40"
+                 data-category="Gas LPG"
+                 data-desc="Gas LPG 3Kg adalah tabung gas melon yang cocok untuk kebutuhan rumah tangga. Isi gas berkualitas, tabung bersih, dan aman digunakan. Cocok untuk memasak sehari-hari."
+                 data-icon="fa-fire"
+                 data-icon-color="text-orange-500"
+                 data-badge="">
+                
+                <div class="h-32 md:h-40 bg-gray-50 rounded-xl mb-3 flex items-center justify-center overflow-hidden">
+                    <i class="fa-solid fa-fire text-orange-500 text-4xl md:text-5xl opacity-50 group-hover:scale-110 transition-transform"></i>
+                </div>
+                <h3 class="font-semibold text-sm text-primary mb-1 truncate">Gas LPG 3Kg</h3>
+                <p class="text-xs text-accent mb-2"><i class="fa-solid fa-store mr-1"></i>Toko Sejahtera</p>
+                <div class="flex items-center gap-1 mb-2">
+                    <i class="fa-solid fa-star text-yellow-400 text-xs"></i>
+                    <span class="text-xs text-accent">4.9 (89)</span>
+                </div>
+                <div class="flex items-center justify-between">
+                    <span class="font-bold text-primary text-sm">Rp 25.000</span>
+                    <button onclick="event.stopPropagation(); openProductModal(this.closest('.product-card'))" 
+                        class="w-8 h-8 rounded-full bg-secondary text-white flex items-center justify-center text-xs hover:bg-primary transition-colors">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- ============ PRODUK 3 ============ -->
+            <div class="product-card bg-white p-3 md:p-4 rounded-2xl shadow-soft hover:shadow-pop transition-all relative group cursor-pointer"
+                 onclick="openProductModal(this)"
+                 data-id="3"
+                 data-name="Gas LPG 12Kg"
+                 data-depot="Wijaya Depot"
+                 data-price="150000"
+                 data-old-price=""
+                 data-rating="4.7"
+                 data-sold="56"
+                 data-stock="15"
+                 data-category="Gas LPG"
+                 data-desc="Gas LPG 12Kg adalah pilihan tepat untuk kebutuhan restoran, kafe, atau rumah tangga besar. Kapasitas lebih besar, lebih hemat, dan praktis. Kualitas gas terjamin."
+                 data-icon="fa-box"
+                 data-icon-color="text-secondary"
+                 data-badge="">
+                
+                <div class="h-32 md:h-40 bg-gray-50 rounded-xl mb-3 flex items-center justify-center overflow-hidden">
+                    <i class="fa-solid fa-box text-secondary text-4xl md:text-5xl opacity-50 group-hover:scale-110 transition-transform"></i>
+                </div>
+                <h3 class="font-semibold text-sm text-primary mb-1 truncate">Gas LPG 12Kg</h3>
+                <p class="text-xs text-accent mb-2"><i class="fa-solid fa-store mr-1"></i>Wijaya Depot</p>
+                <div class="flex items-center gap-1 mb-2">
+                    <i class="fa-solid fa-star text-yellow-400 text-xs"></i>
+                    <span class="text-xs text-accent">4.7 (56)</span>
+                </div>
+                <div class="flex items-center justify-between">
+                    <span class="font-bold text-primary text-sm">Rp 150.000</span>
+                    <button onclick="event.stopPropagation(); openProductModal(this.closest('.product-card'))" 
+                        class="w-8 h-8 rounded-full bg-secondary text-white flex items-center justify-center text-xs hover:bg-primary transition-colors">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- ============ PRODUK 4 ============ -->
+            <div class="product-card bg-white p-3 md:p-4 rounded-2xl shadow-soft hover:shadow-pop transition-all relative group cursor-pointer"
+                 onclick="openProductModal(this)"
+                 data-id="4"
+                 data-name="Galon Aqua 19L"
+                 data-depot="Toko Sejahtera"
+                 data-price="20000"
+                 data-old-price=""
+                 data-rating="4.9"
+                 data-sold="200"
+                 data-stock="30"
+                 data-category="Air Galon"
+                 data-desc="Galon Aqua 19L adalah air mineral dari sumber mata air pegunungan pilihan. Diproses dengan teknologi modern, terjaga kemurniannya. Segar dan menyehatkan."
+                 data-icon="fa-droplet"
+                 data-icon-color="text-blue-400"
+                 data-badge="">
+                
+                <div class="h-32 md:h-40 bg-gray-50 rounded-xl mb-3 flex items-center justify-center overflow-hidden">
+                    <i class="fa-solid fa-droplet text-blue-400 text-4xl md:text-5xl opacity-50 group-hover:scale-110 transition-transform"></i>
+                </div>
+                <h3 class="font-semibold text-sm text-primary mb-1 truncate">Galon Aqua 19L</h3>
+                <p class="text-xs text-accent mb-2"><i class="fa-solid fa-store mr-1"></i>Toko Sejahtera</p>
+                <div class="flex items-center gap-1 mb-2">
+                    <i class="fa-solid fa-star text-yellow-400 text-xs"></i>
+                    <span class="text-xs text-accent">4.9 (200)</span>
+                </div>
+                <div class="flex items-center justify-between">
+                    <span class="font-bold text-primary text-sm">Rp 20.000</span>
+                    <button onclick="event.stopPropagation(); openProductModal(this.closest('.product-card'))" 
+                        class="w-8 h-8 rounded-full bg-secondary text-white flex items-center justify-center text-xs hover:bg-primary transition-colors">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- ============ PRODUK 5 ============ -->
+            <div class="product-card bg-white p-3 md:p-4 rounded-2xl shadow-soft hover:shadow-pop transition-all relative group cursor-pointer"
+                 onclick="openProductModal(this)"
+                 data-id="5"
+                 data-name="Air Mineral 600ml"
+                 data-depot="Wijaya Depot"
+                 data-price="4000"
+                 data-old-price=""
+                 data-rating="4.6"
+                 data-sold="45"
+                 data-stock="100"
+                 data-category="Air Mineral"
+                 data-desc="Air Mineral 600ml dalam kemasan praktis, cocok dibawa bepergian. Kualitas air terjaga, kemasan higienis, dan mudah dibawa ke mana saja."
+                 data-icon="fa-bottle-water"
+                 data-icon-color="text-secondary"
+                 data-badge="BARU">
+                
+                <span class="absolute top-3 left-3 bg-support text-primary text-[10px] font-bold px-2 py-1 rounded-full z-10">BARU</span>
+                <div class="h-32 md:h-40 bg-gray-50 rounded-xl mb-3 flex items-center justify-center overflow-hidden">
+                    <i class="fa-solid fa-bottle-water text-secondary text-4xl md:text-5xl opacity-50 group-hover:scale-110 transition-transform"></i>
+                </div>
+                <h3 class="font-semibold text-sm text-primary mb-1 truncate">Air Mineral 600ml</h3>
+                <p class="text-xs text-accent mb-2"><i class="fa-solid fa-store mr-1"></i>Wijaya Depot</p>
+                <div class="flex items-center gap-1 mb-2">
+                    <i class="fa-solid fa-star text-yellow-400 text-xs"></i>
+                    <span class="text-xs text-accent">4.6 (45)</span>
+                </div>
+                <div class="flex items-center justify-between">
+                    <span class="font-bold text-primary text-sm">Rp 4.000</span>
+                    <button onclick="event.stopPropagation(); openProductModal(this.closest('.product-card'))" 
+                        class="w-8 h-8 rounded-full bg-secondary text-white flex items-center justify-center text-xs hover:bg-primary transition-colors">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- ============ PRODUK 6 ============ -->
+            <div class="product-card bg-white p-3 md:p-4 rounded-2xl shadow-soft hover:shadow-pop transition-all relative group cursor-pointer"
+                 onclick="openProductModal(this)"
+                 data-id="6"
+                 data-name="Gas LPG 5.5Kg"
+                 data-depot="Toko Sejahtera"
+                 data-price="65000"
+                 data-old-price=""
+                 data-rating="4.8"
+                 data-sold="77"
+                 data-stock="20"
+                 data-category="Gas LPG"
+                 data-desc="Gas LPG 5.5Kg adalah ukuran ideal untuk rumah tangga kecil. Lebih ringan dari 12Kg, tapi lebih tahan lama dari 3Kg. Praktis dan ekonomis."
+                 data-icon="fa-fire-flame-simple"
+                 data-icon-color="text-orange-500"
+                 data-badge="">
+                
+                <div class="h-32 md:h-40 bg-gray-50 rounded-xl mb-3 flex items-center justify-center overflow-hidden">
+                    <i class="fa-solid fa-fire-flame-simple text-orange-500 text-4xl md:text-5xl opacity-50 group-hover:scale-110 transition-transform"></i>
+                </div>
+                <h3 class="font-semibold text-sm text-primary mb-1 truncate">Gas LPG 5.5Kg</h3>
+                <p class="text-xs text-accent mb-2"><i class="fa-solid fa-store mr-1"></i>Toko Sejahtera</p>
+                <div class="flex items-center gap-1 mb-2">
+                    <i class="fa-solid fa-star text-yellow-400 text-xs"></i>
+                    <span class="text-xs text-accent">4.8 (77)</span>
+                </div>
+                <div class="flex items-center justify-between">
+                    <span class="font-bold text-primary text-sm">Rp 65.000</span>
+                    <button onclick="event.stopPropagation(); openProductModal(this.closest('.product-card'))" 
+                        class="w-8 h-8 rounded-full bg-secondary text-white flex items-center justify-center text-xs hover:bg-primary transition-colors">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- ============ PRODUK 7 ============ -->
+            <div class="product-card bg-white p-3 md:p-4 rounded-2xl shadow-soft hover:shadow-pop transition-all relative group cursor-pointer"
+                 onclick="openProductModal(this)"
+                 data-id="7"
+                 data-name="Galon Cleo 19L"
+                 data-depot="Wijaya Depot"
+                 data-price="21000"
+                 data-old-price=""
+                 data-rating="4.5"
+                 data-sold="33"
+                 data-stock="18"
+                 data-category="Air Galon"
+                 data-desc="Galon Cleo 19L diproses dengan sistem filtrasi 3 tahap untuk menghasilkan air yang benar-benar bersih dan murni. Rasa segar alami."
+                 data-icon="fa-droplet"
+                 data-icon-color="text-cyan-400"
+                 data-badge="">
+                
+                <div class="h-32 md:h-40 bg-gray-50 rounded-xl mb-3 flex items-center justify-center overflow-hidden">
+                    <i class="fa-solid fa-droplet text-cyan-400 text-4xl md:text-5xl opacity-50 group-hover:scale-110 transition-transform"></i>
+                </div>
+                <h3 class="font-semibold text-sm text-primary mb-1 truncate">Galon Cleo 19L</h3>
+                <p class="text-xs text-accent mb-2"><i class="fa-solid fa-store mr-1"></i>Wijaya Depot</p>
+                <div class="flex items-center gap-1 mb-2">
+                    <i class="fa-solid fa-star text-yellow-400 text-xs"></i>
+                    <span class="text-xs text-accent">4.5 (33)</span>
+                </div>
+                <div class="flex items-center justify-between">
+                    <span class="font-bold text-primary text-sm">Rp 21.000</span>
+                    <button onclick="event.stopPropagation(); openProductModal(this.closest('.product-card'))" 
+                        class="w-8 h-8 rounded-full bg-secondary text-white flex items-center justify-center text-xs hover:bg-primary transition-colors">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- ============ PRODUK 8 ============ -->
+            <div class="product-card bg-white p-3 md:p-4 rounded-2xl shadow-soft hover:shadow-pop transition-all relative group cursor-pointer"
+                 onclick="openProductModal(this)"
+                 data-id="8"
+                 data-name="Gas LPG 50Kg"
+                 data-depot="Toko Sejahtera"
+                 data-price="650000"
+                 data-old-price=""
+                 data-rating="4.9"
+                 data-sold="12"
+                 data-stock="5"
+                 data-category="Gas LPG"
+                 data-desc="Gas LPG 50Kg untuk kebutuhan industri, restoran besar, atau katering. Kapasitas besar, lebih hemat untuk pemakaian intensif."
+                 data-icon="fa-box-open"
+                 data-icon-color="text-secondary"
+                 data-badge="">
+                
+                <div class="h-32 md:h-40 bg-gray-50 rounded-xl mb-3 flex items-center justify-center overflow-hidden">
+                    <i class="fa-solid fa-box-open text-secondary text-4xl md:text-5xl opacity-50 group-hover:scale-110 transition-transform"></i>
+                </div>
+                <h3 class="font-semibold text-sm text-primary mb-1 truncate">Gas LPG 50Kg</h3>
+                <p class="text-xs text-accent mb-2"><i class="fa-solid fa-store mr-1"></i>Toko Sejahtera</p>
+                <div class="flex items-center gap-1 mb-2">
+                    <i class="fa-solid fa-star text-yellow-400 text-xs"></i>
+                    <span class="text-xs text-accent">4.9 (12)</span>
+                </div>
+                <div class="flex items-center justify-between">
+                    <span class="font-bold text-primary text-sm">Rp 650.000</span>
+                    <button onclick="event.stopPropagation(); openProductModal(this.closest('.product-card'))" 
+                        class="w-8 h-8 rounded-full bg-secondary text-white flex items-center justify-center text-xs hover:bg-primary transition-colors">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- ================= MODAL DETAIL PRODUK ================= -->
+    <div id="productModal" class="hidden fixed inset-0 z-[100] items-center justify-center p-4">
+        
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="closeProductModal()"></div>
+
+        <!-- Modal Content -->
+        <div class="relative bg-white rounded-3xl shadow-pop w-full max-w-3xl max-h-[90vh] overflow-y-auto z-10 animate-modal-in">
+            
+            <!-- Tombol Close -->
+            <button onclick="closeProductModal()" 
+                class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center text-primary hover:bg-red-500 hover:text-white transition z-10">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="flex flex-col md:flex-row">
+
+                <!-- Gambar Produk -->
+                <div class="md:w-2/5 bg-gradient-to-br from-[#EBF4FF] to-[#D9E8FF] p-8 flex items-center justify-center relative">
+                    <span id="modalBadge" class="hidden absolute top-4 left-4 bg-support text-primary text-xs font-bold px-3 py-1 rounded-full"></span>
+                    <i id="modalIcon" class="fa-solid fa-droplet text-secondary text-8xl md:text-9xl opacity-70"></i>
+                </div>
+
+                <!-- Info Produk -->
+                <div class="md:w-3/5 p-6 md:p-8">
+
+                    <!-- Kategori -->
+                    <span id="modalCategory" class="inline-block bg-surface text-secondary text-xs font-semibold px-3 py-1 rounded-full mb-3">Air Galon</span>
+
+                    <!-- Nama Produk -->
+                    <h2 id="modalName" class="text-2xl md:text-3xl font-extrabold text-primary mb-2">Galon Le Mineral 20L</h2>
+
+                    <!-- Depot + Rating -->
+                    <div class="flex flex-wrap items-center gap-4 mb-4">
+                        <p class="text-accent text-sm">
+                            <i class="fa-solid fa-store mr-1"></i><span id="modalDepot">Wijaya Depot</span>
+                        </p>
+                        <div class="flex items-center gap-1">
+                            <i class="fa-solid fa-star text-yellow-400 text-sm"></i>
+                            <span id="modalRating" class="text-sm font-semibold text-primary">4.8</span>
+                            <span id="modalSold" class="text-xs text-accent">(120 terjual)</span>
+                        </div>
+                    </div>
+
+                    <!-- Harga -->
+                    <div class="bg-surface rounded-2xl p-4 mb-4">
+                        <p id="modalOldPrice" class="text-sm text-accent line-through">Rp 22.000</p>
+                        <p id="modalPrice" class="text-3xl font-extrabold text-primary">Rp 19.000</p>
+                        <p class="text-xs text-accent mt-1">Harga sudah termasuk ongkir dalam kota</p>
+                    </div>
+
+                    <!-- Deskripsi -->
+                    <div class="mb-4">
+                        <h3 class="font-bold text-primary text-sm mb-2">Deskripsi Produk</h3>
+                        <p id="modalDesc" class="text-sm text-accent leading-relaxed">
+                            Deskripsi produk akan muncul di sini.
+                        </p>
+                    </div>
+
+                    <!-- Info Stok -->
+                    <div class="flex items-center gap-4 mb-4 text-sm">
+                        <div class="flex items-center gap-2 text-accent">
+                            <i class="fa-solid fa-boxes-stacked text-secondary"></i>
+                            Stok: <span id="modalStock" class="font-bold text-primary">25</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-accent">
+                            <i class="fa-solid fa-truck-fast text-secondary"></i>
+                            Estimasi 1-2 jam
+                        </div>
+                    </div>
+
+                    <!-- Quantity + Tombol -->
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <!-- Quantity Selector -->
+                        <div class="flex items-center bg-surface rounded-xl">
+                            <button onclick="changeQty(-1)" class="w-11 h-11 flex items-center justify-center text-primary hover:bg-support/30 rounded-l-xl transition">
+                                <i class="fa-solid fa-minus text-sm"></i>
+                            </button>
+                            <input id="modalQty" type="number" value="1" min="1" readonly
+                                class="w-14 h-11 text-center bg-transparent font-bold text-primary outline-none">
+                            <button onclick="changeQty(1)" class="w-11 h-11 flex items-center justify-center text-primary hover:bg-support/30 rounded-r-xl transition">
+                                <i class="fa-solid fa-plus text-sm"></i>
+                            </button>
+                        </div>
+
+                        <!-- Tombol Tambah ke Keranjang -->
+                        <button onclick="addToCart()" 
+                            class="flex-1 bg-primary text-white py-3 rounded-xl font-semibold hover:bg-secondary transition shadow-lg hover:shadow-pop flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-cart-plus"></i>
+                            Tambah ke Keranjang
+                        </button>
+                    </div>
+
+                    <!-- Tombol Beli Langsung -->
+                    <button onclick="buyNow()" 
+                        class="w-full mt-3 bg-support text-primary py-3 rounded-xl font-bold hover:bg-blue-300 transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-bolt"></i>
+                        Beli Langsung
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Animasi Modal -->
+    <style>
+        @keyframes modalIn {
+            from { opacity: 0; transform: translateY(20px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .animate-modal-in {
+            animation: modalIn 0.3s ease-out;
+        }
+        /* Hilangkan spinner input number */
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        body.modal-open {
+            overflow: hidden;
+        }
+    </style>
+
+    <!-- ================= JAVASCRIPT MODAL ================= -->
+    <script>
+        let currentProduct = null;
+
+        function openProductModal(card) {
+            // Ambil data dari atribut data-*
+            currentProduct = {
+                id: card.dataset.id,
+                name: card.dataset.name,
+                depot: card.dataset.depot,
+                price: parseInt(card.dataset.price),
+                oldPrice: card.dataset.oldPrice,
+                rating: card.dataset.rating,
+                sold: card.dataset.sold,
+                stock: card.dataset.stock,
+                category: card.dataset.category,
+                desc: card.dataset.desc,
+                icon: card.dataset.icon,
+                iconColor: card.dataset.iconColor,
+                badge: card.dataset.badge,
+            };
+
+            // Isi konten modal
+            document.getElementById('modalName').textContent = currentProduct.name;
+            document.getElementById('modalDepot').textContent = currentProduct.depot;
+            document.getElementById('modalCategory').textContent = currentProduct.category;
+            document.getElementById('modalRating').textContent = currentProduct.rating;
+            document.getElementById('modalSold').textContent = `(${currentProduct.sold} terjual)`;
+            document.getElementById('modalStock').textContent = currentProduct.stock;
+            document.getElementById('modalDesc').textContent = currentProduct.desc;
+            document.getElementById('modalQty').value = 1;
+
+            // Harga
+            document.getElementById('modalPrice').textContent = 'Rp ' + currentProduct.price.toLocaleString('id-ID');
+            const oldPriceEl = document.getElementById('modalOldPrice');
+            if (currentProduct.oldPrice && currentProduct.oldPrice !== '') {
+                oldPriceEl.textContent = 'Rp ' + parseInt(currentProduct.oldPrice).toLocaleString('id-ID');
+                oldPriceEl.classList.remove('hidden');
+            } else {
+                oldPriceEl.classList.add('hidden');
+            }
+
+            // Icon
+            const iconEl = document.getElementById('modalIcon');
+            iconEl.className = `fa-solid ${currentProduct.icon} ${currentProduct.iconColor} text-8xl md:text-9xl opacity-70`;
+
+            // Badge
+            const badgeEl = document.getElementById('modalBadge');
+            if (currentProduct.badge && currentProduct.badge !== '') {
+                badgeEl.textContent = currentProduct.badge;
+                badgeEl.classList.remove('hidden');
+            } else {
+                badgeEl.classList.add('hidden');
+            }
+
+            // Tampilkan modal
+            const modal = document.getElementById('productModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.classList.add('modal-open');
+        }
+
+        function closeProductModal() {
+            const modal = document.getElementById('productModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.classList.remove('modal-open');
+            currentProduct = null;
+        }
+
+        function changeQty(delta) {
+            const input = document.getElementById('modalQty');
+            let val = parseInt(input.value) + delta;
+            if (val < 1) val = 1;
+            if (currentProduct && val > parseInt(currentProduct.stock)) {
+                val = parseInt(currentProduct.stock);
+                alert('Jumlah melebihi stok tersedia!');
+            }
+            input.value = val;
+        }
+
+        function addToCart() {
+            if (!currentProduct) return;
+            const qty = document.getElementById('modalQty').value;
+            const total = currentProduct.price * qty;
+            
+            // TODO: Kirim ke backend via fetch/AJAX
+            // fetch('tambah_keranjang.php', { method: 'POST', body: ... })
+            
+            alert(`✅ ${currentProduct.name}\nJumlah: ${qty}\nTotal: Rp ${total.toLocaleString('id-ID')}\n\nBerhasil ditambahkan ke keranjang!`);
+            closeProductModal();
+        }
+
+        function buyNow() {
+            if (!currentProduct) return;
+            const qty = document.getElementById('modalQty').value;
+            const total = currentProduct.price * qty;
+            
+            alert(`🛒 Beli Langsung:\n${currentProduct.name}\nJumlah: ${qty}\nTotal: Rp ${total.toLocaleString('id-ID')}\n\nLanjut ke checkout...`);
+            
+            // TODO: Redirect ke checkout
+            // window.location.href = 'checkout.php?id=' + currentProduct.id + '&qty=' + qty;
+        }
+
+        // Tutup modal dengan tombol ESC
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeProductModal();
+        });
+    </script>
+
+    <?php include '../layout/footer.php'; ?>
+</body>
+</html>
