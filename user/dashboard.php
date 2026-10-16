@@ -18,7 +18,6 @@
                 <h1 class="text-3xl md:text-5xl font-extrabold text-primary leading-tight mb-4">
                     Belanja Air & Gas<br>Lebih Mudah
                 </h1>
-                <p class="text-accent mb-6 max-w-md text-sm md:text-base">Dapatkan harga terbaik untuk kebutuhan air dan gas Anda. Antar langsung ke depan pintu!</p>
                 <a href="katalog.php" class="inline-block bg-primary text-white px-6 py-3 rounded-full font-semibold shadow-lg hover:bg-secondary hover:-translate-y-0.5 transition-all text-sm md:text-base">
                     Belanja Sekarang <i class="fa-solid fa-arrow-right ml-2"></i>
                 </a>

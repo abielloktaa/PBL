@@ -94,9 +94,6 @@
         <p class="text-accent text-lg mb-8 max-w-2xl mx-auto">
             lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.
         </p>
-        <button class="bg-primary text-white px-8 py-3 rounded-full font-bold hover:bg-secondary transition shadow-lg">
-            VIEW DEMO
-        </button>
     </main>
 
 

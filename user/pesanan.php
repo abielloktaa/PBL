@@ -15,7 +15,6 @@
   
         <div class="mb-6">
             <h1 class="text-2xl md:text-3xl font-extrabold text-primary mb-2">Pesanan Saya</h1>
-            <p class="text-accent text-sm md:text-base">Lacak pesanan air & gas Anda secara real-time</p>
         </div>
 
         <div class="bg-white rounded-2xl p-2 mb-6 shadow-soft flex gap-1 overflow-x-auto scrollbar-hide">
@@ -76,105 +75,6 @@
                     <button class="flex-1 text-center border border-gray-200 text-accent py-2.5 rounded-xl text-sm font-semibold hover:bg-surface transition">
                         Hubungi Kurir
                     </button>
-                </div>
-            </div>
-
-            <!-- Pesanan 2: Diproses -->
-            <div class="bg-white rounded-2xl p-4 md:p-6 shadow-soft">
-                <div class="flex flex-wrap justify-between items-start gap-3 pb-4 border-b border-gray-100">
-                    <div>
-                        <p class="text-xs text-accent mb-1">No. Pesanan</p>
-                        <p class="font-bold text-primary text-sm">#GK-2024-1122</p>
-                    </div>
-                    <div class="text-right">
-                        <span class="inline-flex items-center gap-1 bg-yellow-100 text-yellow-700 text-xs font-semibold px-3 py-1.5 rounded-full">
-                            <i class="fa-solid fa-clock"></i> Diproses
-                        </span>
-                        <p class="text-xs text-accent mt-1">23 Nov 2024, 10:15</p>
-                    </div>
-                </div>
-
-                <div class="flex items-center gap-4 py-4">
-                    <div class="w-16 h-16 bg-gray-50 rounded-xl flex items-center justify-center flex-shrink-0">
-                        <i class="fa-solid fa-fire text-orange-500 text-2xl"></i>
-                    </div>
-                    <div class="flex-1 min-w-0">
-                        <h3 class="font-semibold text-primary text-sm truncate">Gas LPG 3Kg</h3>
-                        <p class="text-xs text-accent">Toko Sejahtera • 3 item</p>
-                    </div>
-                    <p class="font-bold text-primary text-sm">Rp 75.000</p>
-                </div>
-
-                <div class="flex flex-col sm:flex-row gap-2 pt-4 border-t border-gray-100">
-                    <button class="flex-1 text-center bg-surface text-primary py-2.5 rounded-xl text-sm font-semibold hover:bg-support transition">
-                        Lihat Detail
-                    </button>
-                    <button class="flex-1 text-center border border-red-200 text-red-500 py-2.5 rounded-xl text-sm font-semibold hover:bg-red-50 transition">
-                        Batalkan
-                    </button>
-                </div>
-            </div>
-
-            <!-- Pesanan 3: Selesai -->
-            <div class="bg-white rounded-2xl p-4 md:p-6 shadow-soft">
-                <div class="flex flex-wrap justify-between items-start gap-3 pb-4 border-b border-gray-100">
-                    <div>
-                        <p class="text-xs text-accent mb-1">No. Pesanan</p>
-                        <p class="font-bold text-primary text-sm">#GK-2024-1120</p>
-                    </div>
-                    <div class="text-right">
-                        <span class="inline-flex items-center gap-1 bg-green-100 text-green-700 text-xs font-semibold px-3 py-1.5 rounded-full">
-                            <i class="fa-solid fa-circle-check"></i> Selesai
-                        </span>
-                        <p class="text-xs text-accent mt-1">22 Nov 2024, 16:45</p>
-                    </div>
-                </div>
-
-                <div class="flex items-center gap-4 py-4">
-                    <div class="w-16 h-16 bg-gray-50 rounded-xl flex items-center justify-center flex-shrink-0">
-                        <i class="fa-solid fa-droplet text-blue-400 text-2xl"></i>
-                    </div>
-                    <div class="flex-1 min-w-0">
-                        <h3 class="font-semibold text-primary text-sm truncate">Galon Aqua 19L</h3>
-                        <p class="text-xs text-accent">Toko Sejahtera • 1 item</p>
-                    </div>
-                    <p class="font-bold text-primary text-sm">Rp 20.000</p>
-                </div>
-
-                <div class="flex flex-col sm:flex-row gap-2 pt-4 border-t border-gray-100">
-                    <button class="flex-1 text-center bg-primary text-white py-2.5 rounded-xl text-sm font-semibold hover:bg-secondary transition">
-                        Beli Lagi
-                    </button>
-                    <button class="flex-1 text-center border border-gray-200 text-accent py-2.5 rounded-xl text-sm font-semibold hover:bg-surface transition">
-                        Beri Ulasan
-                    </button>
-                </div>
-            </div>
-
-            <!-- Pesanan 4: Dibatalkan -->
-            <div class="bg-white rounded-2xl p-4 md:p-6 shadow-soft opacity-75">
-                <div class="flex flex-wrap justify-between items-start gap-3 pb-4 border-b border-gray-100">
-                    <div>
-                        <p class="text-xs text-accent mb-1">No. Pesanan</p>
-                        <p class="font-bold text-primary text-sm">#GK-2024-1118</p>
-                    </div>
-                    <div class="text-right">
-                        <span class="inline-flex items-center gap-1 bg-red-100 text-red-700 text-xs font-semibold px-3 py-1.5 rounded-full">
-                            <i class="fa-solid fa-xmark"></i> Dibatalkan
-                        </span>
-                        <p class="text-xs text-accent mt-1">21 Nov 2024, 09:00</p>
-                    </div>
-                </div>
-
-                <div class="flex items-center gap-4 py-4">
-                    <div class="w-16 h-16 bg-gray-50 rounded-xl flex items-center justify-center flex-shrink-0">
-                        <i class="fa-solid fa-box text-secondary text-2xl"></i>
-                    </div>
-                    <div class="flex-1 min-w-0">
-                        <h3 class="font-semibold text-primary text-sm truncate">Gas LPG 12Kg</h3>
-                        <p class="text-xs text-accent">Wijaya Depot • 1 item</p>
-                    </div>
-                    <p class="font-bold text-primary text-sm">Rp 150.000</p>
                 </div>
             </div>
 
