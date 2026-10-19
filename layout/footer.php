@@ -56,7 +56,7 @@
                 </button>
             </div>
 
-            <!-- Item 2 -->
+ 
             <div class="bg-gray-50 p-4 rounded-xl border border-gray-100 flex items-start relative">
                 <div class="w-16 h-16 bg-gradient-to-br from-orange-400 to-orange-600 rounded-lg flex items-center justify-center text-white flex-shrink-0">
                     <i class="fa-solid fa-fire text-xl"></i>
@@ -81,7 +81,7 @@
             </div>
         </div>
 
-        <!-- Cart Footer -->
+  
         <div class="mt-6 pt-4 border-t border-gray-100">
             <div class="flex justify-between mb-2 text-sm text-accent">
                 <span>Subtotal</span>

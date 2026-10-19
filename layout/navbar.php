@@ -2,14 +2,14 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16 md:h-20">
 
-            <!-- Logo -->
+       
             <a href="dashboard.php" class="flex items-center cursor-pointer">
                 <span class="text-xl md:text-2xl font-bold text-white tracking-tight">
                     Galon<span class="text-support">ku</span>
                 </span>
             </a>
 
-            <!-- Menu Desktop -->
+       
             <div class="hidden md:flex items-center space-x-6 lg:space-x-8">
                 <a href="dashboard.php" class="text-gray-200 hover:text-support font-medium transition text-sm lg:text-base">Dashboard</a>
                 <a href="katalog.php" class="text-gray-200 hover:text-support font-medium transition text-sm lg:text-base">Katalog</a>
@@ -17,15 +17,14 @@
                 <a href="riwayat.php" class="text-gray-200 hover:text-support font-medium transition text-sm lg:text-base">Riwayat</a>
             </div>
 
-            <!-- Right Side -->
+   
             <div class="flex items-center gap-2 md:gap-3">
 
-                <!-- Cart (tampil di semua ukuran) -->
                 <a href="keranjang.php" class="relative w-9 h-9 md:w-10 md:h-10 rounded-full bg-secondary hover:bg-support flex items-center justify-center text-white transition">
                     <i class="fa-solid fa-cart-shopping text-xs md:text-sm"></i>
                 </a>
 
-                <!-- User Dropdown (desktop only) -->
+      
                 <div class="relative hidden md:block">
                     <button id="user-menu-btn" class="flex items-center gap-2 bg-secondary hover:bg-support transition rounded-full pl-1 pr-3 py-1 cursor-pointer">
                         <div class="w-8 h-8 rounded-full bg-support text-primary flex items-center justify-center font-bold text-sm">
@@ -63,7 +62,6 @@
                     </div>
                 </div>
 
-                <!-- Hamburger (mobile only) -->
                 <button id="mobile-menu-btn" class="md:hidden text-white hover:text-support p-1">
                     <svg id="icon-menu" class="h-6 w-6 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -73,11 +71,10 @@
         </div>
     </div>
 
-    <!-- Mobile Menu -->
     <div id="mobile-menu" class="hidden md:hidden bg-secondary border-t border-white/10">
         <div class="px-4 pt-3 pb-4 space-y-1">
 
-            <!-- User Info -->
+     
             <div class="flex items-center gap-3 bg-primary/40 rounded-xl p-3 mb-3">
                 <div class="w-10 h-10 rounded-full bg-support text-primary flex items-center justify-center font-bold">
                     <i class="fa-solid fa-user"></i>
@@ -88,7 +85,6 @@
                 </div>
             </div>
 
-            <!-- Menu -->
             <a href="dashboard.php" class="block px-3 py-2.5 rounded-lg text-white font-medium hover:bg-primary hover:text-support transition">Dashboard</a>
             <a href="katalog.php" class="block px-3 py-2.5 rounded-lg text-white font-medium hover:bg-primary hover:text-support transition">Katalog</a>
             <a href="pesanan.php" class="block px-3 py-2.5 rounded-lg text-white font-medium hover:bg-primary hover:text-support transition">Pesanan</a>
