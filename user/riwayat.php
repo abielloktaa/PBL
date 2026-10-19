@@ -65,7 +65,7 @@
 
         <div class="space-y-3">
 
-            <!-- Riwayat 1 -->
+
             <div class="bg-white rounded-2xl p-4 md:p-5 shadow-soft hover:shadow-pop transition-all">
                 <div class="flex items-center gap-4">
                     <div class="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-support/20 flex items-center justify-center flex-shrink-0">

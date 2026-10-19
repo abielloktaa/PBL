@@ -19,7 +19,7 @@
             <div class="flex items-center justify-between mb-6">
                 <div>
                     <h1 class="text-2xl md:text-3xl font-extrabold text-primary">Dashboard</h1>
-                    <p class="text-accent text-sm mt-1">Selamat datang kembali, <span class="font-semibold text-primary">Wijaya Depot</span> 👋</p>
+                    <p class="text-accent text-xl mt-1">Selamat datang kembali, <span class="font-semibold text-primary">Wijaya Depot</span> 👋</p>
                 </div>
                 
 
@@ -95,62 +95,6 @@
                                 </button>
                             </div>
                         </div>
-
-                        <div class="flex items-center gap-3 p-3 rounded-xl hover:bg-surface transition">
-                            <div class="w-12 h-12 rounded-lg bg-support/20 flex items-center justify-center flex-shrink-0">
-                                <i class="fa-solid fa-droplet text-secondary"></i>
-                            </div>
-                            <div class="flex-1 min-w-0">
-                                <p class="font-semibold text-primary text-sm">#PSN-002</p>
-                                <p class="text-xs text-accent truncate">Siti Aminah — Jl. Sudirman No. 5</p>
-                            </div>
-                            <div class="flex gap-2 flex-shrink-0">
-                                <button class="px-4 py-2 rounded-lg bg-surface text-accent text-xs font-semibold hover:bg-gray-200 transition">
-                                    Tolak
-                                </button>
-                                <button class="px-4 py-2 rounded-lg bg-primary text-white text-xs font-semibold hover:bg-secondary transition">
-                                    Terima
-                                </button>
-                            </div>
-                        </div>
-
-
-                        <div class="flex items-center gap-3 p-3 rounded-xl hover:bg-surface transition">
-                            <div class="w-12 h-12 rounded-lg bg-support/20 flex items-center justify-center flex-shrink-0">
-                                <i class="fa-solid fa-fire text-orange-500"></i>
-                            </div>
-                            <div class="flex-1 min-w-0">
-                                <p class="font-semibold text-primary text-sm">#PSN-003</p>
-                                <p class="text-xs text-accent truncate">Ahmad Rizki — Jl. Diponegoro No. 22</p>
-                            </div>
-                            <div class="flex gap-2 flex-shrink-0">
-                                <button class="px-4 py-2 rounded-lg bg-surface text-accent text-xs font-semibold hover:bg-gray-200 transition">
-                                    Tolak
-                                </button>
-                                <button class="px-4 py-2 rounded-lg bg-primary text-white text-xs font-semibold hover:bg-secondary transition">
-                                    Terima
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center gap-3 p-3 rounded-xl hover:bg-surface transition">
-                            <div class="w-12 h-12 rounded-lg bg-support/20 flex items-center justify-center flex-shrink-0">
-                                <i class="fa-solid fa-box text-secondary"></i>
-                            </div>
-                            <div class="flex-1 min-w-0">
-                                <p class="font-semibold text-primary text-sm">#PSN-004</p>
-                                <p class="text-xs text-accent truncate">Dewi Lestari — Jl. Gatot Subroto No. 8</p>
-                            </div>
-                            <div class="flex gap-2 flex-shrink-0">
-                                <button class="px-4 py-2 rounded-lg bg-surface text-accent text-xs font-semibold hover:bg-gray-200 transition">
-                                    Tolak
-                                </button>
-                                <button class="px-4 py-2 rounded-lg bg-primary text-white text-xs font-semibold hover:bg-secondary transition">
-                                    Terima
-                                </button>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
 

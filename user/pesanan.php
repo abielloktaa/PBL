@@ -55,7 +55,6 @@
                     <p class="font-bold text-primary text-sm">Rp 38.000</p>
                 </div>
 
-                <!-- Progress Bar -->
                 <div class="relative pt-2 pb-4">
                     <div class="flex justify-between text-[10px] text-accent mb-2">
                         <span>Pesanan dibuat</span>

@@ -6,6 +6,7 @@
     <title>Dashboard - GalonKu</title>
     <?php include '../layout/assets.php'; ?>
 </head>
+
 <body class="font-sans antialiased bg-surface">
 
     <?php include '../layout/navbar.php'; ?>
@@ -29,7 +30,6 @@
             <div class="absolute top-0 right-0 w-64 h-64 bg-white/40 rounded-full blur-3xl -mr-20 -mt-20"></div>
             <div class="absolute bottom-0 left-0 w-40 h-40 bg-support/30 rounded-full blur-2xl -ml-10 -mb-10"></div>
         </div>
-        <!-- Produk + Promo -->
         <div class="flex flex-col lg:flex-row gap-6 mb-8">
             <div class="lg:w-3/4">
                 <div class="flex items-center justify-between mb-4">
