@@ -40,7 +40,7 @@
                             <p class="text-xs text-white/70 truncate">user@galonku.com</p>
                         </div>
                         <div class="py-2">
-                            <a href="profil.php" class="flex items-center gap-3 px-4 py-2.5 text-sm text-primary hover:bg-surface transition">
+                            <a href="profile.php" class="flex items-center gap-3 px-4 py-2.5 text-sm text-primary hover:bg-surface transition">
                                 <i class="fa-solid fa-user w-4 text-secondary"></i> Profil Saya
                             </a>
                             <a href="pesanan.php" class="flex items-center gap-3 px-4 py-2.5 text-sm text-primary hover:bg-surface transition">
@@ -49,12 +49,9 @@
                             <a href="riwayat.php" class="flex items-center gap-3 px-4 py-2.5 text-sm text-primary hover:bg-surface transition">
                                 <i class="fa-solid fa-clock-rotate-left w-4 text-secondary"></i> Riwayat
                             </a>
-                            <a href="pengaturan.php" class="flex items-center gap-3 px-4 py-2.5 text-sm text-primary hover:bg-surface transition">
-                                <i class="fa-solid fa-gear w-4 text-secondary"></i> Pengaturan
-                            </a>
                         </div>
                         <div class="border-t border-gray-100 py-2">
-                            <a href="logout.php" onclick="return confirm('Yakin ingin logout?')" 
+                            <a href="../landingpage.php" onclick="return confirm('Yakin ingin logout?')" 
                                class="flex items-center gap-3 px-4 py-2.5 text-sm text-red-500 hover:bg-red-50 transition font-semibold">
                                 <i class="fa-solid fa-right-from-bracket w-4"></i> Logout
                             </a>
@@ -89,13 +86,9 @@
             <a href="katalog.php" class="block px-3 py-2.5 rounded-lg text-white font-medium hover:bg-primary hover:text-support transition">Katalog</a>
             <a href="pesanan.php" class="block px-3 py-2.5 rounded-lg text-white font-medium hover:bg-primary hover:text-support transition">Pesanan</a>
             <a href="riwayat.php" class="block px-3 py-2.5 rounded-lg text-white font-medium hover:bg-primary hover:text-support transition">Riwayat</a>
-            <a href="profil.php" class="block px-3 py-2.5 rounded-lg text-white font-medium hover:bg-primary hover:text-support transition">
+            <a href="profile.php" class="block px-3 py-2.5 rounded-lg text-white font-medium hover:bg-primary hover:text-support transition">
                 <i class="fa-solid fa-user mr-2"></i> Profil Saya
             </a>
-            <a href="pengaturan.php" class="block px-3 py-2.5 rounded-lg text-white font-medium hover:bg-primary hover:text-support transition">
-                <i class="fa-solid fa-gear mr-2"></i> Pengaturan
-            </a>
-
             <div class="border-t border-white/20 my-2 pt-2"></div>
 
             <a href="logout.php" onclick="return confirm('Yakin ingin logout?')" 

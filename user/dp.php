@@ -75,7 +75,7 @@
                         </div>
                     </div>
 
-                    <!-- Quantity -->
+                 
                     <div class="flex items-center gap-4 mb-5">
                         <span class="text-sm font-semibold text-primary">Jumlah:</span>
                         <div class="flex items-center bg-surface rounded-lg">

@@ -35,14 +35,14 @@
                 <h2 class="text-2xl font-bold text-primary mb-2">Masuk Akun</h2>
                 <p class="text-sm text-accent mb-8">Selamat datang kembali, silahkan masuk untuk melanjutkan.</p>
 
-                <form action="actionlogin" method="POST" class="space-y-5">
+                <form action="user/dashboard.php" method="POST" class="space-y-5">
 
                     <div>
                         <label class="block text-sm font-medium text-primary mb-1.5">Email</label>
                         
                         <div class="relative">
                             <i class="fa-solid fa-envelope absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 text-sm"></i>
-                            <input type="email" name="email" placeholder="username" class="input-clean w-full pl-10 pr-4 py-3 rounded-xl text-sm" required>
+                            <input type="" name="email" placeholder="username" class="input-clean w-full pl-10 pr-4 py-3 rounded-xl text-sm" >
                         </div>
                     </div>
                     <div>
