@@ -38,7 +38,7 @@
                         <label class="block text-sm font-medium text-primary mb-1.5">Nama Lengkap</label>
                         <div class="relative">
                             <i class="fa-solid fa-user absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 text-sm"></i>
-                            <input type="text" name="nama_lengkap" placeholder="Lorem Ipsum" class="input-clean w-full pl-10 pr-4 py-3 rounded-xl text-sm" required>
+                            <input type="text" name="nama_lengkap" placeholder="Lorem Ipsum" class="border border-gray-300 input-clean w-full pl-10 pr-4 py-3 rounded-xl text-sm" required>
                         </div>
                     </div>
 
@@ -47,14 +47,14 @@
                             <label class="block text-sm font-medium text-primary mb-1.5">No. Handphone</label>
                             <div class="flex">
                                 <span class="inline-flex items-center px-3 rounded-l-xl border border-r-0 border-gray-200 bg-gray-50 text-accent text-sm font-medium">+62</span>
-                                <input type="tel" name="no_hp" placeholder="895-3620-42424" class="input-clean w-full px-4 py-3 rounded-r-xl text-sm" required>
+                                <input type="tel" name="no_hp" placeholder="895-3620-42424" class="border border-gray-300 input-clean w-full px-4 py-3 rounded-r-xl text-sm" required>
                             </div>
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-primary mb-1.5">Email</label>
                             <div class="relative">
                                 <i class="fa-solid fa-envelope absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 text-sm"></i>
-                                <input type="email" name="email" placeholder="loremipsum@gmail.com" class="input-clean w-full pl-10 pr-4 py-3 rounded-xl text-sm" required>
+                                <input type="email" name="email" placeholder="loremipsum@gmail.com" class="border border-gray-300 input-clean w-full pl-10 pr-4 py-3 rounded-xl text-sm" required>
                             </div>
                         </div>
                     </div>
@@ -63,7 +63,7 @@
                         <label class="block text-sm font-medium text-primary mb-1.5">Password</label>
                         <div class="relative">
                             <i class="fa-solid fa-lock absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 text-sm"></i>
-                            <input type="password" name="password" placeholder="Minimal 6 karakter" class="input-clean w-full pl-10 pr-4 py-3 rounded-xl text-sm" required>
+                            <input type="password" name="password" placeholder="Minimal 6 karakter" class="border border-gray-300 input-clean w-full pl-10 pr-4 py-3 rounded-xl text-sm" required>
                         </div>
                     </div>
 

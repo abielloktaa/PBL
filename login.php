@@ -8,7 +8,7 @@
 </head>
 <body class="font-sans text-primary antialiased auth-page min-h-screen flex items-center justify-center p-4">
 
-    <div class="w-full max-w-5xl bg-white rounded-3xl shadow-card border border-gray-200 overflow-hidden flex flex-col md:flex-row min-h-[600px]">
+    <div class="w-full max-w-5xl bg-white rounded-3xl shadow-xl border border-gray-200 overflow-hidden flex flex-col md:flex-row min-h-[600px]">
         
 
         <div class="w-full md:w-5/12 relative bg-gradient-to-br from-[#002B58] via-[#0A3D7A] to-[#3770BF] p-8 md:p-10 flex flex-col justify-between overflow-hidden">
@@ -42,20 +42,20 @@
                         
                         <div class="relative">
                             <i class="fa-solid fa-envelope absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 text-sm"></i>
-                            <input type="" name="email" placeholder="username" class="input-clean w-full pl-10 pr-4 py-3 rounded-xl text-sm" >
+                            <input type="" name="email" placeholder="username" class="border border-gray-300 input-clean  w-full pl-10 pr-4 py-3 rounded-xl text-sm" >
                         </div>
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-primary mb-1.5">Password</label>
                         <div class="relative">
-                            <i class="fa-solid fa-lock absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 text-sm"></i>
-                            <input type="password" name="password" placeholder="••••••••" class="input-clean w-full pl-10 pr-4 py-3 rounded-xl text-sm" required>
+                            <i class="fa-solid fa-lock absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 text-sm" "></i>
+                            <input type="password" name="password" placeholder="••••••••" class="border border-gray-300 input-clean w-full pl-10 pr-4 py-3 rounded-xl text-sm" required>
                         </div>
                     </div>
                     <div class="flex justify-end">
                         <a href="#" class="text-xs font-medium text-secondary hover:text-primary">Lupa password?</a>
                     </div>
-                    <button type="submit" class="w-full bg-gradient-to-r from-primary to-secondary text-white py-3 rounded-xl font-semibold text-sm shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all">
+                    <button type="submit" class="border border-gray-300 w-full bg-gradient-to-r from-primary to-secondary text-white py-3 rounded-xl font-semibold text-sm shadow-xl hover:shadow-lg hover:-translate-y-0.5 transition-all">
                         Masuk Sekarang
                     </button>
                 </form>

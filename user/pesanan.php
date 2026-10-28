@@ -19,7 +19,7 @@
 
         <div class="bg-white rounded-2xl p-2 mb-6 shadow-soft flex gap-1 overflow-x-auto scrollbar-hide">
             <button class="px-4 md:px-6 py-2.5 rounded-xl bg-primary text-white text-xs md:text-sm font-semibold whitespace-nowrap">
-                Semua <span class="ml-1 bg-white/20 px-2 py-0.5 rounded-full text-[10px]">4</span>
+                Semua
             </button>
             <button class="px-4 md:px-6 py-2.5 rounded-xl text-accent hover:bg-surface text-xs md:text-sm font-semibold whitespace-nowrap transition">Diproses</button>
             <button class="px-4 md:px-6 py-2.5 rounded-xl text-accent hover:bg-surface text-xs md:text-sm font-semibold whitespace-nowrap transition">Dikirim</button>
@@ -56,7 +56,7 @@
                 </div>
 
                 <div class="relative pt-2 pb-4">
-                    <div class="flex justify-between text-[10px] text-accent mb-2">
+                    <div class="flex justify-between text-[15px] text-accent mb-2">
                         <span>Pesanan dibuat</span>
                         <span>Diproses</span>
                         <span class="text-secondary font-bold">Dikirim</span>
