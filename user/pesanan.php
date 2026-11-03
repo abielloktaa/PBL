@@ -1,3 +1,16 @@
+<?php
+
+session_start();
+
+
+if (!isset($_SESSION['username']) || $_SESSION['id_role'] != "1") {
+    header("location:../index.php?pesan=akses_ditolak");
+    exit();
+}
+
+$username = $_SESSION['username'];
+?>
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -12,13 +25,14 @@
 
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-8">
 
-  
         <div class="mb-6">
             <h1 class="text-2xl md:text-3xl font-extrabold text-primary mb-2">Pesanan Saya</h1>
+            <p class="text-sm text-gray-500">Pantau status pengiriman pesananmu di sini.</p>
         </div>
 
-        <div class="bg-white rounded-2xl p-2 mb-6 shadow-soft flex gap-1 overflow-x-auto scrollbar-hide">
-            <button class="px-4 md:px-6 py-2.5 rounded-xl bg-primary text-white text-xs md:text-sm font-semibold whitespace-nowrap">
+      
+        <div class="bg-white rounded-2xl p-2 mb-6 shadow-soft flex gap-1 overflow-x-auto scrollbar-hide border border-gray-400">
+            <button class="px-4 md:px-6 py-2.5 rounded-xl bg-primary text-white text-xs md:text-sm font-semibold whitespace-nowrap border border-gray-400">
                 Semua
             </button>
             <button class="px-4 md:px-6 py-2.5 rounded-xl text-accent hover:bg-surface text-xs md:text-sm font-semibold whitespace-nowrap transition">Diproses</button>
@@ -27,9 +41,10 @@
             <button class="px-4 md:px-6 py-2.5 rounded-xl text-accent hover:bg-surface text-xs md:text-sm font-semibold whitespace-nowrap transition">Dibatalkan</button>
         </div>
 
-  
+
         <div class="space-y-4">
 
+     
             <div class="bg-white rounded-2xl p-4 md:p-6 shadow-soft">
                 <div class="flex flex-wrap justify-between items-start gap-3 pb-4 border-b border-gray-100">
                     <div>
@@ -56,7 +71,7 @@
                 </div>
 
                 <div class="relative pt-2 pb-4">
-                    <div class="flex justify-between text-[15px] text-accent mb-2">
+                    <div class="flex justify-between text-[11px] md:text-[13px] text-accent mb-2">
                         <span>Pesanan dibuat</span>
                         <span>Diproses</span>
                         <span class="text-secondary font-bold">Dikirim</span>
@@ -76,6 +91,7 @@
                     </button>
                 </div>
             </div>
+            
 
         </div>
     </main>

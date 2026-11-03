@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,28 +13,30 @@
     <title>Document</title>
 </head>
 <body>
-        </div> 
+        </div> <!-- Menutup content area dari navbar.php -->
 </main>
-</div>
+</div> <!-- Menutup flex h-screen -->
 
+<!-- ==================== CART DRAWER (Tanpa JS) ==================== -->
 <div id="cart-drawer" class="fixed inset-0 bg-black/30 backdrop-blur-sm z-50 opacity-0 invisible transition-all duration-300 flex justify-end">
     
-
+    <!-- Overlay (Klik area ini untuk menutup, karena label terhubung ke checkbox) -->
     <label for="cart-toggle" class="absolute inset-0 cursor-pointer"></label>
     
-    
+    <!-- Panel Keranjang -->
     <div id="cart-content" class="w-full max-w-md bg-white h-full shadow-2xl p-6 flex flex-col transform translate-x-full transition-transform duration-300 relative z-10">
         
         <div class="flex justify-between items-center mb-6 pb-4 border-b border-gray-100">
             <h2 class="text-xl font-bold text-primary">Keranjang Belanja</h2>
-         
+            <!-- Tombol close menggunakan label -->
             <label for="cart-toggle" class="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center text-accent hover:text-primary hover:bg-gray-100 transition-colors cursor-pointer">
                 <i class="fa-solid fa-times"></i>
             </label>
         </div>
 
+        <!-- Cart Items -->
         <div class="flex-1 overflow-y-auto space-y-4 pr-1">
-        
+            <!-- Item 1 -->
             <div class="bg-gray-50 p-4 rounded-xl border border-gray-100 flex items-start relative">
                 <div class="w-16 h-16 bg-gradient-to-br from-secondary to-primary rounded-lg flex items-center justify-center text-white flex-shrink-0">
                     <i class="fa-solid fa-droplet text-xl"></i>
@@ -56,7 +58,7 @@
                 </button>
             </div>
 
- 
+            <!-- Item 2 -->
             <div class="bg-gray-50 p-4 rounded-xl border border-gray-100 flex items-start relative">
                 <div class="w-16 h-16 bg-gradient-to-br from-orange-400 to-orange-600 rounded-lg flex items-center justify-center text-white flex-shrink-0">
                     <i class="fa-solid fa-fire text-xl"></i>
@@ -81,7 +83,7 @@
             </div>
         </div>
 
-  
+        <!-- Cart Footer -->
         <div class="mt-6 pt-4 border-t border-gray-100">
             <div class="flex justify-between mb-2 text-sm text-accent">
                 <span>Subtotal</span>
@@ -108,4 +110,4 @@
 </body>
 </html>
 </body>
-</html> -->
+</html>

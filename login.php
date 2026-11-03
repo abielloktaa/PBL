@@ -8,7 +8,7 @@
 </head>
 <body class="font-sans text-primary antialiased auth-page min-h-screen flex items-center justify-center p-4">
 
-    <div class="w-full max-w-5xl bg-white rounded-3xl shadow-xl border border-gray-200 overflow-hidden flex flex-col md:flex-row min-h-[600px]">
+    <div class="w-full max-w-5xl bg-white rounded-3xl shadow-xl border border-gray-400 overflow-hidden flex flex-col md:flex-row min-h-[600px]">
         
 
         <div class="w-full md:w-5/12 relative bg-gradient-to-br from-[#002B58] via-[#0A3D7A] to-[#3770BF] p-8 md:p-10 flex flex-col justify-between overflow-hidden">
@@ -35,26 +35,26 @@
                 <h2 class="text-2xl font-bold text-primary mb-2">Masuk Akun</h2>
                 <p class="text-sm text-accent mb-8">Selamat datang kembali, silahkan masuk untuk melanjutkan.</p>
 
-                <form action="user/dashboard.php" method="POST" class="space-y-5">
+                <form action="action/actionlogin.php" method="POST" class="space-y-5">
 
                     <div>
-                        <label class="block text-sm font-medium text-primary mb-1.5">Email</label>
+                        <label class="block text-sm font-medium text-primary mb-1.5">username</label>
                         
                         <div class="relative">
                             <i class="fa-solid fa-envelope absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 text-sm"></i>
-                            <input type="" name="email" placeholder="username" class="border border-gray-300 input-clean  w-full pl-10 pr-4 py-3 rounded-xl text-sm" >
+                            <input type="" name="username"  placeholder="username" class="border border-gray-500 input-clean w-full pl-10 pr-4 py-3 rounded-xl text-sm" >
                         </div>
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-primary mb-1.5">Password</label>
                         <div class="relative">
                             <i class="fa-solid fa-lock absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 text-sm" "></i>
-                            <input type="password" name="password" placeholder="••••••••" class="border border-gray-300 input-clean w-full pl-10 pr-4 py-3 rounded-xl text-sm" required>
+                            <input type="password" name="password" placeholder="••••••••" class="border border-gray-500 input-clean w-full pl-10 pr-4 py-3 rounded-xl text-sm" required>
                         </div>
                     </div>
-                    <div class="flex justify-end">
+                    <!-- <div class="flex justify-end">
                         <a href="#" class="text-xs font-medium text-secondary hover:text-primary">Lupa password?</a>
-                    </div>
+                    </div> -->
                     <button type="submit" class="border border-gray-300 w-full bg-gradient-to-r from-primary to-secondary text-white py-3 rounded-xl font-semibold text-sm shadow-xl hover:shadow-lg hover:-translate-y-0.5 transition-all">
                         Masuk Sekarang
                     </button>
@@ -66,6 +66,11 @@
             </div>
         </div>
     </div>
+    <?php if (isset($_GET['pesan']) && $_GET['pesan'] == 'gagal'): ?>
+    <script>
+        alert("Login Gagal! Username atau Password salah.");
+    </script>
+<?php endif; ?>
 
 </body>
 </html>
