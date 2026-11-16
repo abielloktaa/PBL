@@ -18,6 +18,7 @@ $id_user  = $_SESSION['id_user'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - GalonKu</title>
     <?php include '../layout/assets.php'; ?>
+    <?php include __DIR__ . '/../koneksi.php'; ?>
 </head>
 
 <body class="font-sans antialiased bg-surface">
@@ -25,7 +26,6 @@ $id_user  = $_SESSION['id_user'];
     <?php include '../layout/navbar.php'; ?>
 
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-8">
-
 
         <div class="mb-6">
             <h1 class="text-2xl md:text-3xl font-extrabold text-primary mb-1">Dashboard</h1>
@@ -64,23 +64,53 @@ $id_user  = $_SESSION['id_user'];
                     </div>
                 </div>
 
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 ">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+    <?php
+    // PERBAIKAN QUERY: Menggunakan JOIN untuk mengambil nama agent dari tabel users
+    $query = "SELECT product.*, users.username AS agent_name 
+              FROM product 
+              JOIN users ON product.id_agent = users.id_user 
+              LIMIT 4"; 
+    
+    $data = mysqli_query($koneksi, $query);
 
-                    <div class="bg-white p-3 rounded-2xl shadow-soft hover:shadow-pop transition-all relative group border border-gray-400">
-                        <div class="h-32 bg-gray-50 rounded-lg mb-3 flex items-center justify-center overflow-hidden">
-                            <i class="fa-solid fa-droplet text-secondary text-4xl opacity-50 group-hover:scale-110 transition-transform"></i>
-                        </div>
-                        <h3 class="font-semibold text-sm text-primary mb-1 truncate">Galon Le Mineral 20L</h3>
-                        <p class="text-xs text-accent mb-2">Wijaya Depot</p>
-                        <div class="flex items-center justify-between">
-                            <span class="font-bold text-primary">Rp 19.000</span>
-                            <button class="w-7 h-7 rounded-full bg-secondary text-white flex items-center justify-center text-xs hover:bg-primary transition-colors">
-                                <i class="fa-solid fa-plus"></i>
-                            </button>
-                        </div>
-                    </div>
-                    
-                </div> 
+    while ($row = mysqli_fetch_array($data)) {
+    ?>
+        <!-- BUNGKUS DENGAN TAG <a> -->
+        <a href="detail_produk.php?id=<?= $row['id_product']; ?>" class="block bg-white p-3 rounded-2xl shadow-soft hover:shadow-pop transition-all relative group border border-gray-400">
+            <div class="h-32 bg-gray-50 rounded-lg mb-3 flex items-center justify-center overflow-hidden">
+                <?php if (!empty($row['img']) && strpos($row['img'], 'dummy') === false) { ?>
+                    <img src="<?= $row['img']; ?>" class="w-full h-full object-cover group-hover:scale-110 transition-transform" alt="<?= $row['name_product']; ?>">
+                <?php } else { ?>
+                    <i class="fa-solid fa-droplet text-secondary text-4xl opacity-50 group-hover:scale-110 transition-transform"></i>
+                <?php } ?>
+            </div>
+            
+            <h3 class="font-semibold text-sm text-primary mb-1 truncate" title="<?= $row['name_product']; ?>">
+                <?= htmlspecialchars($row['name_product']); ?>
+            </h3>
+            
+            <!-- MENAMPILKAN NAMA AGENT -->
+            <p class="text-[11px] text-accent mb-1 truncate">
+                <i class="fa-solid fa-store mr-1 text-secondary"></i> <?= htmlspecialchars($row['agent_name'] ?? 'GalonKu'); ?>
+            </p>
+
+            <p class="text-xs text-accent mb-2">Stok: <?= $row['stock']; ?></p>
+            
+            <div class="flex items-center justify-between">
+                <span class="font-bold text-primary">Rp <?= number_format($row['price'], 0, ',', '.'); ?></span>
+                
+                <!-- TOMBOL PLUS -->
+                <button type="button" onclick="event.preventDefault(); window.location.href='detail_produk.php?id=<?= $row['id_product']; ?>';" class="w-7 h-7 rounded-full bg-secondary text-white flex items-center justify-center text-xs hover:bg-primary transition-colors">
+                    <i class="fa-solid fa-plus"></i>
+                </button>
+            </div>
+        </a>
+    <?php 
+    } 
+    ?>
+
+</div> 
             </div> 
         </div> 
 

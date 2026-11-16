@@ -37,7 +37,7 @@ $base = "/pbl/";
                     <!-- MENU AGENT -->
                     <a href="<?= $base ?>agent/dashboard.php" class="text-gray-200 hover:text-support font-medium transition text-sm lg:text-base">Dashboard</a>
                     <a href="<?= $base ?>agent/produk.php" class="text-gray-200 hover:text-support font-medium transition text-sm lg:text-base">Kelola Produk</a>
-                    <a href="<?= $base ?>agent/pesanan_masuk.php" class="text-gray-200 hover:text-support font-medium transition text-sm lg:text-base">Pesanan Masuk</a>
+                    <a href="<?= $base ?>agent/pesanan.php" class="text-gray-200 hover:text-support font-medium transition text-sm lg:text-base">Pesanan Masuk</a>
 
                 <?php elseif ($n == "3"): ?>
                     <!-- MENU ADMIN -->
@@ -82,6 +82,7 @@ $base = "/pbl/";
 
                             <?php elseif ($n == "2"): ?>
                                 <a href="<?= $base ?>agent/profile.php" class="flex items-center gap-3 px-4 py-2.5 text-sm text-primary hover:bg-surface transition"><i class="fa-solid fa-user w-4 text-secondary"></i> Profil Depot</a>
+                                 <a href="<?= $base ?>agent/pesanan.php" class="text-gray-200 hover:text-support font-medium transition text-sm lg:text-base">Pesanan Masuk</a>
                                 <a href="<?= $base ?>agent/produk.php" class="flex items-center gap-3 px-4 py-2.5 text-sm text-primary hover:bg-surface transition"><i class="fa-solid fa-box w-4 text-secondary"></i> Produk Saya</a>
 
                             <?php elseif ($n == "3"): ?>

@@ -1,12 +1,10 @@
 <?php
-
 session_start();
 
 if (!isset($_SESSION['username']) || $_SESSION['id_role'] != "1") {
     header("location:../index.php?pesan=akses_ditolak");
     exit();
 }
-
 
 $username = $_SESSION['username'];
 $id_user  = $_SESSION['id_user'];
@@ -19,9 +17,9 @@ $id_user  = $_SESSION['id_user'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Katalog - GalonKu</title>
     <?php include '../layout/assets.php'; ?>
+    <?php include __DIR__ . '/../koneksi.php'; ?>
 </head>
 <body class="font-sans antialiased bg-surface">
-
 
     <?php include '../layout/navbar.php'; ?>
 
@@ -32,7 +30,6 @@ $id_user  = $_SESSION['id_user'];
             <p class="text-sm text-gray-500">Halo <span class="font-semibold capitalize"><?= htmlspecialchars($username); ?></span>, temukan kebutuhan air dan gasmu di sini.</p>
         </div>
 
-     
         <div class="bg-white rounded-2xl p-4 mb-6 shadow-soft flex flex-col md:flex-row gap-3">
             <div class="flex-1 relative">
                 <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-accent text-sm"></i>
@@ -47,7 +44,6 @@ $id_user  = $_SESSION['id_user'];
             </select>
         </div>
 
-
         <div class="flex gap-2 mb-6 overflow-x-auto pb-1">
             <button class="px-9 py-2 rounded-full bg-primary text-white text-xs font-semibold whitespace-nowrap">Semua</button>
             <button class="px-4 py-2 rounded-full bg-white text-accent hover:bg-support hover:text-primary text-xs font-semibold whitespace-nowrap transition shadow-soft border border-gray-400">Air Galon</button>
@@ -56,38 +52,64 @@ $id_user  = $_SESSION['id_user'];
             <button class="px-4 py-2 rounded-full bg-white text-accent hover:bg-support hover:text-primary text-xs font-semibold whitespace-nowrap transition shadow-soft border border-gray-400">Promo</button>
         </div>
 
-   
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
 
-            <div class="bg-white p-3 rounded-2xl shadow-soft hover:shadow-pop transition-all group border border-gray-400">
-                <div class="h-28 md:h-32 bg-gray-50 rounded-xl mb-3 flex items-center justify-center overflow-hidden border border-gray-300">
+    <?php
+    // PERBAIKAN QUERY: Menggunakan JOIN untuk mengambil nama agent (penjual)
+    $query = "SELECT product.*, users.username AS agent_name, users.depot 
+              FROM product 
+              JOIN users ON product.id_agent = users.id_user"; 
+    
+    $data = mysqli_query($koneksi, $query);
+
+    while ($row = mysqli_fetch_array($data)) {
+    ?>
+        <!-- BUNGKUS DENGAN TAG <a> -->
+        <a href="detail_produk.php?id=<?= $row['id_product']; ?>" class="block bg-white p-3 rounded-2xl shadow-soft hover:shadow-pop transition-all group border border-gray-400">
+            <div class="h-28 md:h-32 bg-gray-50 rounded-xl mb-3 flex items-center justify-center overflow-hidden border border-gray-300">
+                <?php if (!empty($row['img']) && strpos($row['img'], 'dummy') === false) { ?>
+                    <img src="<?= $row['img']; ?>" class="w-full h-full object-cover group-hover:scale-110 transition-transform" alt="<?= $row['name_product']; ?>">
+                <?php } else { ?>
                     <i class="fa-solid fa-droplet text-secondary text-4xl opacity-50 group-hover:scale-110 transition-transform"></i>
-                </div>
-                <h3 class="font-semibold text-sm text-primary mb-1 truncate">Galon Le Mineral 20L</h3>
-                <p class="text-xs text-accent mb-2"><i class="fa-solid fa-store mr-1"></i>Wijaya Depot</p>
-                <div class="flex items-center justify-between">
-                    <div>
-                        <span class="font-bold text-primary text-sm">Rp 19.000</span>
-                    </div>
-               
-                    <button onclick="tambahKeranjang(1)" class="w-8 h-8 rounded-full bg-secondary text-white flex items-center justify-center text-xs hover:bg-primary transition-colors" title="Tambah ke Keranjang">
-                        <i class="fa-solid fa-plus"></i>
-                    </button>
-                </div>
+                <?php } ?>
             </div>
 
-      
+            <h3 class="font-semibold text-sm text-primary mb-1 truncate" title="<?= $row['name_product']; ?>">
+                <?= htmlspecialchars($row['name_product']); ?>
+            </h3>
+            
+            <!-- MENAMPILKAN NAMA AGENT / DEPOT -->
+            <p class="text-[11px] text-accent mb-1 truncate" title="<?= htmlspecialchars($row['agent_name']); ?>">
+                <i class="fa-solid fa-store mr-1 text-secondary"></i> 
+                <?= htmlspecialchars($row['agent_name'] ?? 'GalonKu'); ?>
+            </p>
 
-        </div>
+            <p class="text-xs text-accent mb-2">
+                <i class="fa-solid fa-box mr-1"></i> Stok: <?= $row['stock']; ?>
+            </p>
+
+            <div class="flex items-center justify-between">
+                <div>
+                    <span class="font-bold text-primary text-sm">Rp <?= number_format($row['price'], 0, ',', '.'); ?></span>
+                </div>
+           
+                <!-- TOMBOL PLUS -->
+                <button type="button" onclick="event.preventDefault(); window.location.href='detail_produk.php?id=<?= $row['id_product']; ?>';" class="w-8 h-8 rounded-full bg-secondary text-white flex items-center justify-center text-xs hover:bg-primary transition-colors" title="Lihat Detail">
+                    <i class="fa-solid fa-plus"></i>
+                </button>
+            </div>
+        </a>
+    <?php 
+    } 
+    ?>
+</div> 
 
     </main>
 
     <?php include '../layout/footer.php'; ?>
 
-    <!-- Script sederhana untuk ngetes tombol keranjang -->
     <script>
         function tambahKeranjang(idProduk) {
-            // Di sini nanti kamu bisa ganti dengan AJAX fetch ke proses_keranjang.php
             alert('Produk dengan ID ' + idProduk + ' berhasil ditambahkan ke keranjang!');
         }
     </script>

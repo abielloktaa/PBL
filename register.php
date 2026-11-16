@@ -33,12 +33,12 @@
                 <h2 class="text-2xl font-bold text-primary mb-2">Gabung Dengan Kami</h2>
                 <p class="text-sm text-accent mb-8">Lengkapi data diri Anda untuk membuat akun GalonKu.</p>
 
-                <form action="login.php" method="POST" class="space-y-4">
+                <form action="action/actionregister.php" method="POST" class="space-y-4">
                     <div>
                         <label class="block text-sm font-medium text-primary mb-1.5">Nama Lengkap</label>
                         <div class="relative">
                             <i class="fa-solid fa-user absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 text-sm"></i>
-                            <input type="text" name="nama_lengkap" placeholder="Lorem Ipsum" class="border border-gray-400 input-clean w-full pl-10 pr-4 py-3 rounded-xl text-sm" required>
+                            <input type="text" name="username" placeholder="Lorem Ipsum" class="border border-gray-400 input-clean w-full pl-10 pr-4 py-3 rounded-xl text-sm" required>
                         </div>
                     </div>
 
@@ -64,6 +64,22 @@
                         <div class="relative">
                             <i class="fa-solid fa-lock absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 text-sm"></i>
                             <input type="password" name="password" placeholder="Minimal 6 karakter" class="border border-gray-400 input-clean w-full pl-10 pr-4 py-3 rounded-xl text-sm" required>
+                        </div>
+                    </div>
+                    
+                      <div>
+                        <label class="block text-sm font-medium text-primary mb-1.5">alamat</label>
+                        <div class="relative">
+                            <i class="fa-solid fa-lock absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 text-sm"></i>
+                            <input type="text" name="address" placeholder="Minimal 6 karakter" class="border border-gray-400 input-clean w-full pl-10 pr-4 py-3 rounded-xl text-sm" required>
+                        </div>
+                    </div>
+
+                      <div>
+                        <label class="block text-sm font-medium text-primary mb-1.5">depot</label>
+                        <div class="relative">
+                            <i class="fa-solid fa-lock absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 text-sm"></i>
+                            <input type="text" name="depot" placeholder="Minimal 6 karakter" class="border border-gray-400 input-clean w-full pl-10 pr-4 py-3 rounded-xl text-sm" >
                         </div>
                     </div>
 
