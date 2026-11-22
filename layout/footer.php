@@ -1,113 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="https://cdn.tailwindcss.com"></script>
-    
-   
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+<!-- ==================== FOOTER UTAMA ==================== -->
+<footer class="bg-white border-t-2 border-gray-200 mt-auto py-8 relative z-10 w-full">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+            
+            <!-- Kiri: Logo & Deskripsi -->
+            <div class="text-center md:text-left md:w-1/3">
+                <a href="/pbl/user/dashboard.php" class="text-2xl font-extrabold text-primary tracking-tight">
+                    Galon<span class="text-secondary">ku</span>
+                </a>
+                <p class="text-sm text-gray-500 mt-2 max-w-xs mx-auto md:mx-0">
+                    Solusi mudah untuk memenuhi kebutuhan air galon dan gas LPG Anda langsung ke depan pintu.
+                </p>
+            </div>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <title>Document</title>
-</head>
-<body>
-        </div> <!-- Menutup content area dari navbar.php -->
-</main>
-</div> <!-- Menutup flex h-screen -->
+            <!-- Kanan: Link Cepat & Sosmed -->
+            <div class="flex flex-col sm:flex-row gap-8 md:gap-16 text-center sm:text-left md:w-2/3 justify-end">
+                <div>
+                    <h3 class="text-sm font-bold text-primary mb-3">Menu Cepat</h3>
+                    <ul class="space-y-2 text-sm text-gray-500">
+                        <li><a href="/pbl/user/katalog.php" class="hover:text-secondary transition">Katalog Produk</a></li>
+                        <li><a href="/pbl/user/riwayat.php" class="hover:text-secondary transition">Riwayat Belanja</a></li>
+                        <li><a href="/pbl/user/profile.php" class="hover:text-secondary transition">Profil Saya</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm font-bold text-primary mb-3">Hubungi Kami</h3>
+                    <ul class="space-y-2 text-sm text-gray-500">
+                        <li><i class="fa-brands fa-whatsapp text-green-500 mr-2"></i> +62 812-3456-7890</li>
+                        <li><i class="fa-solid fa-envelope text-secondary mr-2"></i> support@galonku.com</li>
+                        <li><i class="fa-solid fa-location-dot text-red-500 mr-2"></i> Batam, Indonesia</li>
+                    </ul>
+                </div>
+            </div>
 
-<!-- ==================== CART DRAWER (Tanpa JS) ==================== -->
-<div id="cart-drawer" class="fixed inset-0 bg-black/30 backdrop-blur-sm z-50 opacity-0 invisible transition-all duration-300 flex justify-end">
-    
-    <!-- Overlay (Klik area ini untuk menutup, karena label terhubung ke checkbox) -->
-    <label for="cart-toggle" class="absolute inset-0 cursor-pointer"></label>
-    
-    <!-- Panel Keranjang -->
-    <div id="cart-content" class="w-full max-w-md bg-white h-full shadow-2xl p-6 flex flex-col transform translate-x-full transition-transform duration-300 relative z-10">
-        
-        <div class="flex justify-between items-center mb-6 pb-4 border-b border-gray-100">
-            <h2 class="text-xl font-bold text-primary">Keranjang Belanja</h2>
-            <!-- Tombol close menggunakan label -->
-            <label for="cart-toggle" class="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center text-accent hover:text-primary hover:bg-gray-100 transition-colors cursor-pointer">
-                <i class="fa-solid fa-times"></i>
-            </label>
         </div>
 
-        <!-- Cart Items -->
-        <div class="flex-1 overflow-y-auto space-y-4 pr-1">
-            <!-- Item 1 -->
-            <div class="bg-gray-50 p-4 rounded-xl border border-gray-100 flex items-start relative">
-                <div class="w-16 h-16 bg-gradient-to-br from-secondary to-primary rounded-lg flex items-center justify-center text-white flex-shrink-0">
-                    <i class="fa-solid fa-droplet text-xl"></i>
-                </div>
-                <div class="ml-4 flex-1">
-                    <h4 class="font-bold text-primary text-sm">Galon Aqua 20L</h4>
-                    <p class="text-xs text-accent mb-2">Wijaya Depot</p>
-                    <div class="flex items-center justify-between">
-                        <p class="text-sm font-bold text-primary">Rp 19.000</p>
-                        <div class="flex items-center space-x-2 bg-white rounded-lg border border-gray-200 px-2 py-1">
-                            <button class="text-accent hover:text-primary text-xs"><i class="fa-solid fa-minus"></i></button>
-                            <span class="text-xs font-semibold w-4 text-center">2</span>
-                            <button class="text-accent hover:text-primary text-xs"><i class="fa-solid fa-plus"></i></button>
-                        </div>
-                    </div>
-                </div>
-                <button class="absolute top-4 right-4 text-gray-300 hover:text-red-500 transition-colors">
-                    <i class="fa-solid fa-trash text-xs"></i>
-                </button>
+        <!-- Garis Bawah & Copyright -->
+        <div class="border-t border-gray-100 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center text-xs text-gray-700">
+            <p>&copy; <?= date('Y'); ?> GalonKu. All rights reserved.</p>
+            <div class="flex gap-4 mt-3 md:mt-0">
+                <a href="#" class="hover:text-primary transition">Syarat & Ketentuan</a>
+                <a href="#" class="hover:text-primary transition">Kebijakan Privasi</a>
             </div>
-
-            <!-- Item 2 -->
-            <div class="bg-gray-50 p-4 rounded-xl border border-gray-100 flex items-start relative">
-                <div class="w-16 h-16 bg-gradient-to-br from-orange-400 to-orange-600 rounded-lg flex items-center justify-center text-white flex-shrink-0">
-                    <i class="fa-solid fa-fire text-xl"></i>
-                </div>
-                <div class="ml-4 flex-1">
-                    <h4 class="font-bold text-primary text-sm">Gas LPG 3Kg</h4>
-                    <p class="text-xs text-accent mb-2">Toko Sejahtera</p>
-                    <div class="flex items-center justify-between">
-                        <p class="text-sm font-bold text-primary">Rp 25.000</p>
-                        <div class="flex items-center space-x-2 bg-white rounded-lg border border-gray-200 px-2 py-1">
-
-                            <button class="text-accent hover:text-primary text-xs"><i class="fa-solid fa-minus"></i></button>
-                            <span class="text-xs font-semibold w-4 text-center">1</span>
-                            <button class="text-accent hover:text-primary text-xs"><i class="fa-solid fa-plus"></i></button>
-                            
-                        </div>
-                    </div>
-                </div>
-                <button class="absolute top-4 right-4 text-gray-300 hover:text-red-500 transition-colors">
-                    <i class="fa-solid fa-trash text-xs"></i>
-                </button>
-            </div>
-        </div>
-
-        <!-- Cart Footer -->
-        <div class="mt-6 pt-4 border-t border-gray-100">
-            <div class="flex justify-between mb-2 text-sm text-accent">
-                <span>Subtotal</span>
-                <span class="font-medium text-primary">Rp 63.000</span>
-            </div>
-            <div class="flex justify-between mb-4 text-sm text-accent">
-                <span>Ongkos Kirim</span>
-                <span class="font-medium text-primary">Rp 2.000</span>
-            </div>
-            <div class="flex justify-between mb-6 text-lg font-bold text-primary">
-                <span>Total</span>
-                <span>Rp 65.000</span>
-            </div>
-            <button class="w-full bg-gradient-to-r from-secondary to-primary text-white py-3 rounded-xl font-semibold shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all mb-2">
-                Checkout Sekarang
-            </button>
-            <button class="w-full bg-gray-50 text-primary py-3 rounded-xl font-semibold border border-gray-200 hover:bg-gray-100 transition-colors">
-                Lihat Keranjang
-            </button>
         </div>
     </div>
-</div>
-
-</body>
-</html>
-</body>
-</html>
+</footer>

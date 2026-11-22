@@ -24,7 +24,7 @@
         <h2 class="text-3xl font-extrabold text-gray-800 mb-6">Keranjang Belanja</h2>
 
         <!-- BUG 1: Ada typo pada class Tailwind flexbox di sini. Akibatnya, di layar laptop, keranjang dan ringkasan tidak akan bersebelahan -->
-        <div class="flex flex-col md:flex-ro gap-6">
+        <div class="flex flex-col md:flex-row gap-6">
             
             <!-- KOLOM KIRI: DAFTAR PRODUK -->
             <div class="w-full md:w-2/3">

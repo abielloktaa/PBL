@@ -18,21 +18,20 @@ if (isset($_POST['tambah_produk'])) {
     $harga       = $_POST['harga'];
     $stok        = $_POST['stok'];
     
-    // Default gambar dummy (hex) jika tidak upload
-    $img_query = "0x64756d6d795f696d616765"; 
+    $img_query = "NULL"; 
 
-    // Proses Upload Gambar
     if (isset($_FILES['img']) && $_FILES['img']['error'] == 0) {
         $ekstensi = strtolower(pathinfo($_FILES['img']['name'], PATHINFO_EXTENSION));
         if (in_array($ekstensi, ['jpg', 'jpeg', 'png'])) {
             $nama_file_baru = 'prod_' . $id_user . '_' . time() . '.' . $ekstensi;
-            $folder_tujuan = __DIR__ . '/img_produk/';
+            
+            // PERBAIKAN: Folder tujuan diarahkan ke ../poto/
+            $folder_tujuan = __DIR__ . '/../poto/';
             
             if (!is_dir($folder_tujuan)) mkdir($folder_tujuan, 0777, true);
             
             if (move_uploaded_file($_FILES['img']['tmp_name'], $folder_tujuan . $nama_file_baru)) {
-                // Simpan path gambar ke database
-                $img_query = "'img_produk/$nama_file_baru'";
+                $img_query = "'$nama_file_baru'";
             }
         }
     }
@@ -56,24 +55,25 @@ if (isset($_POST['edit_produk'])) {
     $harga       = $_POST['harga'];
     $stok        = $_POST['stok'];
     
-    // Ambil data lama untuk hapus gambar lama jika ada gambar baru
     $q_lama = mysqli_query($koneksi, "SELECT img FROM product WHERE id_product = '$id_produk'");
     $d_lama = mysqli_fetch_assoc($q_lama);
 
-    $update_img_query = ""; // Kosongkan jika tidak ganti gambar
+    $update_img_query = ""; 
 
     if (isset($_FILES['img']) && $_FILES['img']['error'] == 0) {
         $ekstensi = strtolower(pathinfo($_FILES['img']['name'], PATHINFO_EXTENSION));
         if (in_array($ekstensi, ['jpg', 'jpeg', 'png'])) {
             $nama_file_baru = 'prod_' . $id_user . '_' . time() . '.' . $ekstensi;
-            $folder_tujuan = __DIR__ . '/img_produk/';
+            
+            // PERBAIKAN: Folder tujuan diarahkan ke ../poto/
+            $folder_tujuan = __DIR__ . '/../poto/';
             
             if (move_uploaded_file($_FILES['img']['tmp_name'], $folder_tujuan . $nama_file_baru)) {
-                // Hapus file gambar lama dari folder
-                if (!empty($d_lama['img']) && strpos($d_lama['img'], 'img_produk') !== false && file_exists(__DIR__ . '/../' . $d_lama['img'])) {
-                    unlink(__DIR__ . '/../' . $d_lama['img']);
+                // Hapus file gambar lama
+                if (!empty($d_lama['img']) && !str_contains($d_lama['img'], 'dummy') && file_exists($folder_tujuan . $d_lama['img'])) {
+                    unlink($folder_tujuan . $d_lama['img']);
                 }
-                $update_img_query = ", img = 'img_produk/$nama_file_baru'";
+                $update_img_query = ", img = '$nama_file_baru'";
             }
         }
     }
@@ -98,11 +98,12 @@ if (isset($_POST['edit_produk'])) {
 if (isset($_GET['hapus'])) {
     $id_hapus = $_GET['hapus'];
     
-    // Ambil data gambar untuk dihapus dari folder
     $q_lama = mysqli_query($koneksi, "SELECT img FROM product WHERE id_product = '$id_hapus'");
     $d_lama = mysqli_fetch_assoc($q_lama);
-    if (!empty($d_lama['img']) && strpos($d_lama['img'], 'img_produk') !== false && file_exists(__DIR__ . '/../' . $d_lama['img'])) {
-        unlink(__DIR__ . '/../' . $d_lama['img']);
+    
+    // PERBAIKAN: Path hapus file diarahkan ke ../poto/
+    if (!empty($d_lama['img']) && !str_contains($d_lama['img'], 'dummy') && file_exists(__DIR__ . '/../poto/' . $d_lama['img'])) {
+        unlink(__DIR__ . '/../poto/' . $d_lama['img']);
     }
 
     $query = "DELETE FROM product WHERE id_product = '$id_hapus' AND id_agent = '$id_user'";
@@ -162,8 +163,9 @@ if (isset($_GET['hapus'])) {
                         <tr class="border-b hover:bg-gray-50">
                             <td class="p-4">
                                 <div class="w-16 h-16 bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center border border-gray-200">
-                                    <?php if (!empty($row['img']) && strpos($row['img'], 'dummy') === false && strpos($row['img'], 'img_produk') !== false) { ?>
-                                        <img src="<?= $row['img']; ?>" class="w-full h-full object-cover">
+                                    <?php if (!empty($row['img']) && !str_contains($row['img'], 'dummy')) { ?>
+                                        <!-- PERBAIKAN: Panggil gambar dari folder ../poto/ -->
+                                        <img src="../poto/<?= $row['img']; ?>" class="w-full h-full object-cover">
                                     <?php } else { ?>
                                         <i class="fa-solid fa-droplet text-secondary text-2xl"></i>
                                     <?php } ?>

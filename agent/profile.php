@@ -29,6 +29,7 @@ $_SESSION['username'] = $user['username'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profil Depot - GalonKu</title>
     <?php include '../layout/assets.php'; ?>
+    
 </head>
 <body class="font-sans antialiased bg-surface">
 

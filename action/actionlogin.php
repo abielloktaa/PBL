@@ -21,15 +21,15 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
             $_SESSION['id_role']  = $d['id_role'];
             $_SESSION['id_user']  = $d['id_user']; 
            
-            // Arahkan ke halaman yang sesuai
+            // Arahkan ke halaman yang sesuai DENGAN PARAMETER PESAN
             if ($d['id_role'] == "1") {
-                header("location:../user/dashboard.php");
+                header("location:../user/dashboard.php?pesan=login_berhasil");
                 exit();
             } else if ($d['id_role'] == "2") {
-                header("location:../agent/dashboard.php");
+                header("location:../agent/dashboard.php?pesan=login_berhasil");
                 exit();
             } else if ($d['id_role'] == "3") {
-                header("location:../admin/dashboard.php"); 
+                header("location:../admin/dashboard.php?pesan=login_berhasil"); 
                 exit();
             } else {
                 header("location:../login.php?pesan=gagal");
@@ -49,4 +49,4 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     header("location:../login.php");
     exit();
 }
-?> 
+?>

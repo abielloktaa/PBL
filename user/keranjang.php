@@ -2,7 +2,7 @@
 session_start();
 include __DIR__ . '/../koneksi.php'; 
 
-if (!isset($_SESSION['username'])) {
+if (!isset($_SESSION['username']) || $_SESSION['id_role'] != "1") {
     header("location:../index.php?pesan=belum_login");
     exit();
 }
@@ -59,14 +59,12 @@ if (!isset($_SESSION['username'])) {
                                 $subtotal = $p['price'] * $qty;
                                 $total_belanja += $subtotal;
                             ?>
-                            <!-- Beri ID unik pada baris (tr) berdasarkan id_produk -->
                             <tr class="border-b" id="row-<?= $id_produk; ?>">
                                 <td class="py-4">
                                     <p class="font-semibold text-primary"><?= $p['name_product']; ?></p>
                                     <p class="text-xs text-gray-400">Rp <?= number_format($p['price'], 0, ',', '.'); ?> / item</p>
                                 </td>
                                 
-                                <!-- Kolom Edit Jumlah -->
                                 <td class="py-4 text-center">
                                     <div class="flex items-center justify-center gap-2">
                                         <button type="button" onclick="updateQty(<?= $id_produk; ?>, -1, <?= $p['stock']; ?>)" class="w-7 h-7 rounded bg-gray-100 text-primary hover:bg-gray-200 transition">
@@ -83,12 +81,10 @@ if (!isset($_SESSION['username'])) {
                                     </div>
                                 </td>
 
-                                <!-- Subtotal dengan ID untuk update realtime -->
                                 <td class="py-4 text-right font-bold text-primary" id="subtotal-<?= $id_produk; ?>" data-price="<?= $p['price']; ?>">
                                     Rp <?= number_format($subtotal, 0, ',', '.'); ?>
                                 </td>
 
-                                <!-- Tombol Hapus -->
                                 <td class="py-4 text-center">
                                     <button type="button" onclick="hapusBarang(<?= $id_produk; ?>)" class="text-red-500 hover:text-red-700 transition" title="Hapus Barang">
                                         <i class="fa-solid fa-trash-can"></i>
@@ -100,11 +96,9 @@ if (!isset($_SESSION['username'])) {
                     </table>
                 </div>
 
-                <!-- Total & Checkout -->
                 <div class="bg-gray-50 p-6 flex flex-col md:flex-row justify-between items-center border-t border-gray-200 gap-4">
                     <div class="w-full md:w-auto text-center md:text-left">
                         <p class="text-sm text-gray-500">Total Pembayaran</p>
-                        <!-- ID untuk update total realtime -->
                         <p class="text-2xl font-extrabold text-primary" id="total-belanja-tampil">
                             Rp <?= number_format($total_belanja, 0, ',', '.'); ?>
                         </p>
@@ -120,20 +114,38 @@ if (!isset($_SESSION['username'])) {
         <?php endif; ?>
     </main>
 
+    <!-- ================= POPUP KONFIRMASI HAPUS ================= -->
+    <div id="deleteModal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/60 backdrop-blur-sm p-4 transition-opacity duration-300">
+        <div class="bg-white rounded-[2rem] p-8 max-w-sm w-full text-center relative overflow-hidden shadow-2xl">
+            <div class="w-20 h-20 mx-auto bg-red-50 rounded-full flex items-center justify-center mb-4 border-4 border-white shadow-sm">
+                <i class="fa-solid fa-trash-can text-4xl text-red-500"></i>
+            </div>
+            
+            <h2 class="text-xl font-extrabold text-primary mb-2">Hapus Barang?</h2>
+            <p class="text-sm text-gray-500 mb-6">Apakah Anda yakin ingin menghapus produk ini dari keranjang belanja Anda?</p>
+            
+            <div class="flex gap-3">
+                <button onclick="closeDeleteModal()" class="flex-1 bg-gray-100 text-gray-600 py-3 rounded-xl font-bold hover:bg-gray-200 transition">Batal</button>
+                <button onclick="confirmDelete()" class="flex-1 bg-red-500 text-white py-3 rounded-xl font-bold hover:bg-red-600 transition shadow-md">Ya, Hapus</button>
+            </div>
+        </div>
+    </div>
+
     <!-- ================= JAVASCRIPT AJAX ================= -->
     <script>
+        // Variabel untuk menyimpan ID produk yang akan dihapus
+        let productToDelete = null;
+
         // Fungsi untuk Update Jumlah (Plus/Minus/Ketik Manual)
         function updateQty(idProduk, change, maxStock) {
             const input = document.getElementById('qty-' + idProduk);
             let currentVal = parseInt(input.value);
             let newVal = currentVal;
 
-            // Jika parameter change bukan 0 (berarti tombol +/- yang diklik)
             if (change !== 0) {
                 newVal = currentVal + change;
             }
 
-            // Validasi Stok
             if (newVal > maxStock) {
                 alert('Jumlah melebihi stok yang tersedia!');
                 input.value = maxStock;
@@ -144,12 +156,12 @@ if (!isset($_SESSION['username'])) {
 
             input.value = newVal;
 
-            // Kirim data ke backend via AJAX (Fetch)
             const formData = new FormData();
             formData.append('update_qty', '1');
             formData.append('id_produk', idProduk);
             formData.append('jumlah', newVal);
 
+            // Pastikan path file PHP ini benar (sesuaikan folder action jika perlu)
             fetch('updatekeranjang.php', {
                 method: 'POST',
                 body: formData
@@ -157,65 +169,73 @@ if (!isset($_SESSION['username'])) {
             .then(response => response.json())
             .then(data => {
                 if (newVal === 0) {
-                    // Jika 0, hilangkan baris secara realtime
                     document.getElementById('row-' + idProduk).remove();
                     cekKeranjangKosong();
                 } else {
-                    // Update subtotal secara realtime
                     const price = parseInt(document.getElementById('subtotal-' + idProduk).getAttribute('data-price'));
                     const subtotalBaru = price * newVal;
                     document.getElementById('subtotal-' + idProduk).innerText = 'Rp ' + subtotalBaru.toLocaleString('id-ID');
                 }
-                
-                // Hitung ulang Total Belanja
                 hitungTotal();
             });
         }
 
-        // Fungsi untuk Hapus Barang
+        // 1. Fungsi saat tombol tong sampah diklik (Membuka Popup)
         function hapusBarang(idProduk) {
-            if (!confirm('Yakin ingin menghapus barang ini?')) return;
+            productToDelete = idProduk;
+            const modal = document.getElementById('deleteModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        // 2. Fungsi saat tombol "Batal" di popup diklik
+        function closeDeleteModal() {
+            const modal = document.getElementById('deleteModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            productToDelete = null;
+        }
+
+        // 3. Fungsi saat tombol "Ya, Hapus" di popup diklik
+        function confirmDelete() {
+            if (!productToDelete) return;
 
             const formData = new FormData();
-            formData.append('hapus', idProduk);
+            formData.append('hapus', productToDelete);
 
+            // Pastikan path file PHP ini benar
             fetch('update_keranjang.php', {
                 method: 'POST',
                 body: formData
             })
             .then(response => response.json())
             .then(data => {
-                // Hilangkan baris secara realtime
-                document.getElementById('row-' + idProduk).remove();
+                // Hapus baris tabel secara realtime
+                document.getElementById('row-' + productToDelete).remove();
                 hitungTotal();
                 cekKeranjangKosong();
+                closeDeleteModal();
             });
         }
 
-        // Fungsi untuk Menghitung Ulang Total Belanja di Bawah
         function hitungTotal() {
             let total = 0;
-            // Ambil semua elemen subtotal
             const subtotals = document.querySelectorAll('[id^="subtotal-"]');
             
             subtotals.forEach(el => {
-                // Ambil data-price, kalikan dengan qty di baris tersebut
                 const id = el.id.replace('subtotal-', '');
                 const price = parseInt(el.getAttribute('data-price'));
                 const qty = parseInt(document.getElementById('qty-' + id).value);
-                
                 total += (price * qty);
             });
 
-            // Tampilkan total baru
             document.getElementById('total-belanja-tampil').innerText = 'Rp ' + total.toLocaleString('id-ID');
         }
 
-        // Fungsi cek jika keranjang jadi kosong setelah dihapus
         function cekKeranjangKosong() {
             const rows = document.querySelectorAll('tbody tr');
             if (rows.length === 0) {
-                window.location.reload(); // Reload untuk memunculkan tampilan "Keranjang Kosong"
+                window.location.reload(); 
             }
         }
 

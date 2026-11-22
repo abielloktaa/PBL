@@ -1,13 +1,16 @@
-
 <script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<!-- Menggunakan Plus Jakarta Sans sebagai pengganti Satoshi -->
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <script>
     tailwind.config = {
         theme: {
             extend: {
-                fontFamily: { sans: ['Inter', 'sans-serif'] },
+                fontFamily: { 
+                    // Mengubah font default ke Plus Jakarta Sans
+                    sans: ['"Plus Jakarta Sans"', 'sans-serif'] 
+                },
                 colors: {
                     primary: '#002B58',
                     secondary: '#3770BF',
@@ -26,6 +29,17 @@
     }
 </script>
 
+<style>
+    /* Base */
+    body {
+        background-color: #F1F5F9; 
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        color: #002B58;
+    }
+
+    /* ... (Sisa CSS lainnya seperti .sidebar-solid, .product-card, dll tetap sama) ... */
+</style>
+<!-- 
 <style>
     /* Base */
     body {
@@ -124,4 +138,4 @@
     
 </style>
 
-
+ -->

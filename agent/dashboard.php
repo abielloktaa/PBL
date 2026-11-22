@@ -107,7 +107,7 @@ $result_pesanan = mysqli_query($koneksi, $query_pesanan);
                 <div class="lg:col-span-2 bg-white rounded-2xl shadow-soft p-5 border border-gray-50">
                     <div class="flex items-center justify-between mb-4">
                         <h2 class="text-lg font-bold text-primary">Pesanan Terbaru</h2>
-                        <a href="pesanan_agent.php" class="text-sm text-secondary hover:text-primary font-semibold transition">Lihat Semua</a>
+                        <a href="pesanan.php" class="text-sm text-secondary hover:text-primary font-semibold transition">Lihat Semua</a>
                     </div>
 
                     <div class="space-y-3">
@@ -146,6 +146,29 @@ $result_pesanan = mysqli_query($koneksi, $query_pesanan);
 
         </main>
     </div>
+
+    <!-- ================= POPUP LOGIN BERHASIL (AGENT) ================= -->
+    <?php if (isset($_GET['pesan']) && $_GET['pesan'] == 'login_berhasil'): ?>
+    <div id="loginModal" class="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 transition-opacity duration-300">
+        <div class="bg-white rounded-[2rem] p-8 max-w-sm w-full text-center relative overflow-hidden shadow-2xl">
+            <!-- Hiasan -->
+            <div class="absolute top-0 left-0 w-full h-24 bg-gradient-to-br from-[#EBF4FF] to-[#D9E8FF]"></div>
+            
+            <div class="relative z-10 pt-4">
+                <div class="w-20 h-20 mx-auto bg-white rounded-full shadow-md flex items-center justify-center mb-4 border-4 border-white">
+                    <i class="fa-solid fa-store text-4xl text-secondary animate-bounce"></i>
+                </div>
+                
+                <h2 class="text-2xl font-extrabold text-primary mb-2">Selamat Bekerja!</h2>
+                <p class="text-sm text-gray-500 mb-6">Halo <span class="font-bold"><?= htmlspecialchars($username); ?></span>, semoga pesanan depot Anda hari ini lancar dan banyak!</p>
+                
+                <button onclick="document.getElementById('loginModal').style.display='none'" class="w-full bg-primary text-white py-3 rounded-xl font-bold hover:bg-secondary transition shadow-md">
+                    Ke Dashboard
+                </button>
+            </div>
+        </div>
+    </div>
+    <?php endif; ?>
 
     <!-- MOBILE BOTTOM NAV -->
     <nav class="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-100 shadow-lg z-40">
